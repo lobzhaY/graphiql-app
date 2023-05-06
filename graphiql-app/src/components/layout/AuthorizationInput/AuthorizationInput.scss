@@ -1,0 +1,18 @@
+@import '../../../styles/variables.scss';
+
+.authorization-input {
+  width: 420px;
+  height: 80px;
+  background-color: $background-inputs-buttons;
+  border-radius: $border-radius-inputs-buttons;
+  padding-left: 35px;
+}
+
+.authorization-input::placeholder {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $font-size-placeholder;
+  line-height: 28px;
+  color: $color-placeholder;
+}

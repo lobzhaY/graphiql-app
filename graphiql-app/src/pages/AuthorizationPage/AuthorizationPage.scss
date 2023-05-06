@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.background {
+  width: 1920px;
+  height: 1048px;
+  border: 1px solid yellow;
+}
+
+.authorization-title {
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $font-size-headers-button;
+  line-height: 42px;
+  color: $background-inputs-buttons;
+  margin: 0;
+}
