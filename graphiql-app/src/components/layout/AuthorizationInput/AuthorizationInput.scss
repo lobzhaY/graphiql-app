@@ -3,8 +3,8 @@
 .authorization-input {
   width: 420px;
   height: 80px;
-  background-color: $background-inputs-buttons;
-  border-radius: $border-radius-inputs-buttons;
+  background-color: $second-color;
+  border-radius: $border-radius;
   padding-left: 35px;
 }
 
@@ -12,7 +12,7 @@
   font-family: $main-font;
   font-style: normal;
   font-weight: 300;
-  font-size: $font-size-placeholder;
+  font-size: $font-size-sm;
   line-height: 28px;
-  color: $color-placeholder;
+  color: $main-color;
 }
