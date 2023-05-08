@@ -1,4 +1,148 @@
-header {
-  width: 100%;
-  height: 116px;
+@import '../../../styles/variables.scss';
+
+.header {
+  max-width: 100%;
+  height: 6.5rem;
+  background-color: $main-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .mobile {
+    display: none;
+  }
+
+  &__logo {
+    margin: 1rem 2rem;
+    object-fit: cover;
+    width: 354px;
+    height: 56px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 2rem;
+    font-size: $font-size-sm;
+
+    &-login {
+      color: $second-color;
+      border: 2px solid $second-color;
+      background-color: $main-color;
+      border-radius: 10px;
+      margin-right: 2rem;
+      padding: 1rem 5rem;
+      &:hover {
+        color: $main-color;
+        background-color: $second-color;
+      }
+    }
+
+    &-signup {
+      color: $main-color;
+      background-color: $second-color;
+      border-radius: 10px;
+      padding: 1rem 5rem;
+      &:hover {
+        color: $second-color;
+        border: 2px solid $second-color;
+        background-color: $main-color;
+      }
+    }
+
+    &-start {
+      color: $main-color;
+      background-color: $second-color;
+      border-radius: 10px;
+      padding: 1rem 5rem;
+      &:hover {
+        color: $second-color;
+        border: 2px solid $second-color;
+        background-color: $main-color;
+      }
+    }
+  }
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+  animation: smoothScroll 1s forwards;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-142px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    .desktop {
+      display: none;
+    }
+    .mobile {
+      display: flex;
+      width: 64px;
+      height: 64px;
+      object-fit: unset;
+    }
+
+    &__logo {
+      margin: 1rem 0.5rem;
+    }
+
+    &__buttons {
+      font-size: $font-size-sm * 0.75;
+      margin: 1rem 0.5rem;
+  
+      &-login {
+        color: $second-color;
+        border: unset;
+        background-color: $main-color;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+        &:hover {
+          color: $main-color;
+          background-color: $second-color;
+        }
+      }
+  
+      &-signup {
+        color: $second-color;
+        background-color: $main-color;
+        padding: 0.5rem 1rem;
+        &:hover {
+          border: unset;
+          color: $main-color;
+          background-color: $second-color;
+        }
+      }
+
+      &-start {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    &__buttons {
+      font-size: $font-size-sm * 0.7;
+      margin: 1rem 0.5rem;
+  
+      &-login,&-signup, &-start {
+        padding: 1rem 3rem;
+      }
+    }
+  }
+ }

@@ -1,11 +1,18 @@
 @import '../../styles/variables.scss';
 
-// .wrapper-app {
-//     width: 1920px;
-//     height: 1280.16px;
-//     background-image: url($bi);
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-color: $background-basic;
-// }
+.wrapper-app {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url($bi);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $background-color;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    .container {
+        flex-grow: 1;
+    }
+}
