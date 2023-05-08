@@ -14,6 +14,17 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+    background-image: url(/src/assets/background-img.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
