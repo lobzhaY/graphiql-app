@@ -2,14 +2,33 @@ import { useState } from 'react';
 import './Playground.scss';
 
 function Playground() {
-    const initialRequest = `{query name {
-        ggegr {
-            rgte
+  const url = 'https://rickandmortyapi.com/graphql'
+    const initialRequest = `query allCh{
+      characters {
+        results {
+          name
         }
-    }}`
+      }
+    }`
   const [request, setRequest] = useState(initialRequest)
   const [response, setResponse] = useState('')
   const [variables, setVariables] = useState('')
+  const [activeTab, setActiveTab] = useState('')
+
+  const makeRequest = async (query:string) => {
+        const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({ query })
+    });
+    const dataResults =  await res.json().then((data) =>JSON.stringify(data) )
+    setResponse(dataResults)
+      }
+     const onclickRequestHandler = () => {
+      makeRequest(request)
+     }
 
   return (
     <div className="wrapper-playground">
@@ -21,11 +40,16 @@ function Playground() {
      </div>
      <div className='editor-container'>
         <div className='editor-left-container'>
+          <h3 onClick={onclickRequestHandler}>Play</h3>
         <textarea className='request-container' onChange={(e)=>setRequest(e.target.value)} defaultValue={request}/>
         <div className='variables-wrapper'>
-            <div>Variables</div>
-
-        <textarea className='variables-container' onChange={(e)=>setVariables(e.target.value)} defaultValue={variables} />    
+           <div className='variables-header'>
+             <span onClick={()=>setActiveTab('variables')}>Variables</span>
+             <span onClick={()=>setActiveTab('headers')}>Headers</span>
+             <span onClick={()=>setActiveTab('')}>^</span>
+            </div>
+        {activeTab === 'variables' ? <textarea className='variables-container' onChange={(e)=>setVariables(e.target.value)} defaultValue={variables} /> : null}
+        {activeTab === 'headers' ? <textarea className='variables-container' onChange={(e)=>setVariables(e.target.value)} defaultValue={variables} /> : null}
         </div>
         
         </div>
