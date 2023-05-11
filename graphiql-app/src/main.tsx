@@ -1,13 +1,20 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, redirect } from 'react-router-dom';
+
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './components/ErrorBoundary/ErrorFallback.tsx';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => redirect('/')}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>
 );
