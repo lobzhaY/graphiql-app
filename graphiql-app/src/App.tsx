@@ -5,11 +5,9 @@ import MainPage from './pages/MainPage/MainPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import './App.scss';
-import AuthorizationPage from './pages/AuthorizationPage/AuthorizationPage';
-import LoginComponent from './components/routes/LoginComponent/LoginComponent';
-import RegisterComponent from './components/routes/RegisterComponent/RegisterComponent';
-import ResetComponent from './components/routes/ResetComponent/ResetComponent';
-
+import LoginComponent from './pages/AuthorizationPage/LoginComponent/LoginComponent';
+import RegisterComponent from './pages/AuthorizationPage/RegisterComponent/RegisterComponent';
+import ResetComponent from './pages/AuthorizationPage/ResetComponent/ResetComponent';
 
 function App() {
   return (
@@ -18,11 +16,9 @@ function App() {
         <Route path="/" element={<RootRoute />}>
           <Route index element={<MainPage />} />
           <Route path="/404" element={<NotFoundPage />} />
-          <Route path="/authorization" element={<AuthorizationPage />}>
-            <Route index path="/authorization/login" element={<LoginComponent />} />
-            <Route path="/authorization/register" element={<RegisterComponent />} />
-            <Route path="/authorization/reset" element={<ResetComponent />} />
-          </Route>
+          <Route index path="/login" element={<LoginComponent />} />
+          <Route path="/register" element={<RegisterComponent />} />
+          <Route path="/reset" element={<ResetComponent />} />
         </Route>
         <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>

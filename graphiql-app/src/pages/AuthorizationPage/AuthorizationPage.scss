@@ -6,6 +6,13 @@
   border: 1px solid yellow;
 }
 
+.auth-container {
+  width: 420px;
+  position: relative;
+  top: 200px;
+  left: calc(100% - (420px + 140px));
+}
+
 .authorization-title {
   font-family: $main-font;
   font-style: normal;
@@ -13,5 +20,93 @@
   font-size: $font-size-headers-button;
   line-height: 42px;
   color: $background-inputs-buttons;
-  margin: 0;
+  margin: 0 0 60px;
+  text-align: center;
+}
+
+.authorization-button {
+  width: 420px;
+  height: 80px;
+  background: $color-placeholder;
+  border: 3px solid $background-inputs-buttons;
+  border-radius: $border-radius-inputs-buttons;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $font-size-headers-button;
+  line-height: 42px;
+  color: $background-inputs-buttons;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0;
+  cursor: pointer;
+  outline: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+
+  &:hover {
+    color: #fff;
+    background-color: $background-basic;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border-color: #DDDDDD;
+    color: #DDDDDD;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:active {
+    box-shadow: none;
+    background-color: #F7F7F7;
+    border-color: #000000;
+    transform: scale(.96);
+  }
+
+  &:focus-visible {
+    box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+    transition: box-shadow .2s;
+  }
+
+}
+
+.authorization-links {
+  width: 420px;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $font-size-auth-links;
+  line-height: 30px;
+  color: $color-text;
+  text-align: center;
+}
+
+.auth-link {
+  color: $color-error;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $font-size-auth-links;
+  line-height: 30px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $color-link;
+  }
+
+  &:visited {
+    color: $background-inputs-buttons;
+  }
+
 }

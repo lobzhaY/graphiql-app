@@ -5,8 +5,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ILoginState } from '../../../types/authorizationInterface/authorizationInterface';
-import AuthorizationInput from '../../layout/AuthorizationInput/AuthorizationInput';
- 
+import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
+
+import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
+import validationEmail from '../../../utils/authValidation/authorizationEmail';
+import validationPassword from '../../../utils/authValidation/authorizationPassword';
+
 function LoginComponent() {
   const {
     register,
@@ -22,21 +26,18 @@ function LoginComponent() {
       // maybe trigger a loading screen
       return;
     }
-    console.log(error);
     if (user) navigate('/');
   }, [user, loading]);
 
   const handleSubmitClick: SubmitHandler<ILoginState> = (data) => {
-    console.log(data);
-    console.log(errors);
     logInWithEmailAndPassword(data.email, data.password);
     console.log('logInWithEmailAndPassword');
     reset();
   };
 
   return (
-    <div>
-      <h2 className='authorization-title'>Log in form</h2>
+    <div className="auth-container">
+      <h2 className="authorization-title">Log in form</h2>
       <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
         <AuthorizationInput
           type="text"
@@ -44,7 +45,7 @@ function LoginComponent() {
           hookRegister={{
             ...register('email', {
               required: 'Error email!',
-              validate: (value) => value.length > 3,
+              validate: (value) => validationEmail(value),
             }),
           }}
           hookError={errors.email}
@@ -56,19 +57,29 @@ function LoginComponent() {
           hookRegister={{
             ...register('password', {
               required: 'Error password!',
-              validate: (value) => value.length > 3,
+              validate: (value) => validationPassword(value),
             }),
           }}
           hookError={errors.password}
           placeholder="Password"
         />
-        <button type="submit">Login</button>
+        <button className="authorization-button" type="submit">
+          Login
+        </button>
       </form>
-      <div>
-        <Link to="/authorization/reset">Forgot Password</Link>
-      </div>
-      <div>
-        Don't have an account? <Link to="/authorization/register">Register</Link> now.
+      <div className="authorization-links">
+        <div>
+          <Link to="/reset" className="auth-link">
+            Forgot Password
+          </Link>
+        </div>
+        <div>
+          Don't have an account?{' '}
+          <Link to="/register" className="auth-link">
+            Register
+          </Link>{' '}
+          now.
+        </div>
       </div>
     </div>
   );

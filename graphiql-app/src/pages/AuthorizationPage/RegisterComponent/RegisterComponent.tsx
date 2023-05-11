@@ -5,7 +5,12 @@ import { authFirebase, registerWithEmailAndPassword } from '../../../utils/fireb
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { IRegisterState } from '../../../types/authorizationInterface/authorizationInterface';
-import AuthorizationInput from '../../layout/AuthorizationInput/AuthorizationInput';
+import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
+
+import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
+import validationName from '../../../utils/authValidation/authorizationName';
+import validationEmail from '../../../utils/authValidation/authorizationEmail';
+import validationPassword from '../../../utils/authValidation/authorizationPassword';
 
 function RegisterComponent() {
   const {
@@ -33,8 +38,8 @@ function RegisterComponent() {
   };
 
   return (
-    <div>
-      <h2>Sign up form</h2>
+    <div className="auth-container">
+      <h2 className="authorization-title">Sign up form</h2>
       <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
         <AuthorizationInput
           type="text"
@@ -42,7 +47,7 @@ function RegisterComponent() {
           hookRegister={{
             ...register('name', {
               required: 'Error name!',
-              validate: (value) => value.length > 3,
+              validate: (value) => validationName(value),
             }),
           }}
           hookError={errors.name}
@@ -54,7 +59,7 @@ function RegisterComponent() {
           hookRegister={{
             ...register('email', {
               required: 'Error email!',
-              validate: (value) => value.length > 3,
+              validate: (value) => validationEmail(value),
             }),
           }}
           hookError={errors.email}
@@ -66,16 +71,22 @@ function RegisterComponent() {
           hookRegister={{
             ...register('password', {
               required: 'Error password!',
-              validate: (value) => value.length > 3,
+              validate: (value) => validationPassword(value),
             }),
           }}
           hookError={errors.password}
           placeholder="Password"
         />
-        <button type='submit'>Register</button>
+        <button type="submit" className="authorization-button">
+          Register
+        </button>
       </form>
-      <div>
-        Already have an account? <Link to="/authorization/login">Login</Link> now.
+      <div className="authorization-links">
+        Already have an account?{' '}
+        <Link to="/login" className="auth-link">
+          Login
+        </Link>{' '}
+        now.
       </div>
     </div>
   );

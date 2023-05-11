@@ -24,6 +24,7 @@ function MainPage() {
     if (loading) return;
     if (!user) return navigate('/');
     fetchUserName();
+    console.log(error);
   }, [user, loading]); 
 
   return (
@@ -37,7 +38,7 @@ function MainPage() {
         </button>
       </div>
       <p>Содержимое MAIN PAGE</p>
-      <Link to="/authorization/login">Авторизация</Link>
+      <Link to="/login">Авторизация</Link>
     </div>
   );
 }

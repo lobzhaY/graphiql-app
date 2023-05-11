@@ -6,7 +6,10 @@ import { authFirebase, sendPasswordReset } from '../../../utils/firebase/firebas
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { IResetState } from '../../../types/authorizationInterface/authorizationInterface';
-import AuthorizationInput from '../../layout/AuthorizationInput/AuthorizationInput';
+import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
+
+import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
+import validationEmail from '../../../utils/authValidation/authorizationEmail';
 
 function ResetComponent() {
   const {
@@ -34,8 +37,8 @@ function ResetComponent() {
   };
 
   return (
-    <div>
-      <h2>Reset password</h2>
+    <div className="auth-container">
+      <h2 className="authorization-title">Reset password</h2>
       <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
         <AuthorizationInput
           type="text"
@@ -43,16 +46,22 @@ function ResetComponent() {
           hookRegister={{
             ...register('email', {
               required: 'Error email!',
-              validate: (value) => value.length > 3,
+              validate: (value) => validationEmail(value),
             }),
           }}
           hookError={errors.email}
           placeholder="E-mail Address"
         />
-        <button type="submit">Send password reset email</button>
+        <button type="submit" className="authorization-button">
+          Send password reset email
+        </button>
       </form>
-      <div>
-        Don't have an account? <Link to="/authorization/register">Register</Link> now.
+      <div className="authorization-links">
+        Don't have an account?{' '}
+        <Link to="/register" className="auth-link">
+          Register
+        </Link>{' '}
+        now.
       </div>
     </div>
   );

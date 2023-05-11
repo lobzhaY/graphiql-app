@@ -9,3 +9,8 @@
     background-position: center;
     background-color: $background-basic;
 }
+
+.container {
+    width: 100%;
+    height: calc(100% - 232px);
+}

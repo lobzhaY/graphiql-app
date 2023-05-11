@@ -11,7 +11,7 @@ function AuthorizationInput({
   hookRegister,
 }: IAuthorizationInput) {
   return (
-    <div>
+    <div className='auth-input-container'>
       <input className='authorization-input' type={type} placeholder={placeholder} id={id} {...hookRegister} />
       {hookError && <p className="invalid-message">{hookError.message as ReactNode}</p>}
     </div>
