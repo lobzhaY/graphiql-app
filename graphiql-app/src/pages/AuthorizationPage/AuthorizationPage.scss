@@ -1,17 +1,23 @@
 @import '../../styles/variables.scss';
 
 .background {
-  width: 1920px;
-  height: 1048px;
-  border: 1px solid yellow;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 .auth-container {
-  width: 420px;
+  max-width: 26.25rem;
   position: relative;
-  top: 200px;
-  left: calc(100% - (420px + 140px));
+  top: 12.5rem;
+  left: calc(100% - (26.25rem + 8.75rem));
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    // position: static;
+    margin: 5rem 0 ;
+  }
+ }
 
 .authorization-title {
   font-family: $main-font;
