@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import RootRoute from './pages/Root/RootRoute';
-import MainPage from './pages/MainPage/MainPage';
+import MainPage from './pages/WelcomePage/WelcomePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import './App.scss';

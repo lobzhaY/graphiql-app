@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.welcome-page {
+  position: absolute;
+  bottom: 170px;
+  right: 50px;
+
+  &__block {
+    padding: 16px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 400px;
+    height: 200px;
+    background: $main-color;
+    border-radius: 10px;
+    color: $link-color;
+    font-size: $font-size-sm;
+
+    &-img {
+      max-width: 145px;
+      max-height: 135px;
+    }
+
+    &-text {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .welcome-page {
+    position: absolute;
+    top: 150px;
+    right: 0;
+  
+    &__block {
+      max-width: 290px;
+    }
+  }
+}
