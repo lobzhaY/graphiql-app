@@ -12,27 +12,24 @@
   left: calc(100% - (26.25rem + 8.75rem));
 }
 
-@media (max-width: 768px) {
-  .auth-container {
-    // position: static;
-    margin: 5rem 0 ;
-  }
- }
-
 .authorization-title {
   font-family: $main-font;
   font-style: normal;
   font-weight: 700;
   font-size: $font-size-lg;
-  line-height: 42px;
+  line-height: 2.6rem;
   color: $second-color;
-  margin: 0 0 60px;
+  margin: 0 0 3.75rem;
   text-align: center;
 }
 
+.form-auth {
+  width: 100%;
+}
+
 .authorization-button {
-  width: 420px;
-  height: 80px;
+  width: 26.25rem;
+  height: 5rem;
   background: $main-color;
   border: 3px solid $second-color;
   border-radius: $border-radius;
@@ -84,7 +81,7 @@
 }
 
 .authorization-links {
-  width: 420px;
+  width: 100%;
   font-family: $main-font;
   font-style: normal;
   font-weight: 300;
@@ -116,3 +113,23 @@
   }
 
 }
+
+@media (max-width: 780px) {
+  .auth-container {
+    position: static;
+    margin: 12.5rem auto;
+    min-width: 16.4rem;
+    min-height: 5.11rem;
+  }
+  .authorization-title {
+    font-size: $font-size-lg * 0.7;
+    line-height: 1.8rem;
+    margin-bottom: 2.6rem;
+  }
+  .authorization-button {
+    width: 90%;
+    margin: 1rem auto;
+    font-size: $font-size-lg * 0.7;
+    line-height: 1.8rem;
+  }
+ }

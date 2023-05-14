@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+import './i18n';
 
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from './components/ErrorBoundary/ErrorFallback.tsx';

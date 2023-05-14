@@ -12,14 +12,29 @@
   }
 
   &__info {
+    display: flex;
+
     &-year {
-      margin: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 10px;
+      color: $link-color;
+      font-size: $font-size-md;
+      flex: 30%;
+    }
+
+    &-github {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
       color: $link-color;
       font-size: $font-size-md;
     }
 
     &-link {
-      margin: 1rem 2rem 1rem 0;
+      margin: 0.5rem 2rem 0 0;
       color: $link-color;
       font-size: $font-size-md;
     }

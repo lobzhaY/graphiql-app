@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import RootRoute from './pages/Root/RootRoute';
-import MainPage from './pages/MainPage/MainPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import './App.scss';
@@ -11,6 +10,7 @@ import ResetComponent from './pages/AuthorizationPage/ResetComponent/ResetCompon
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { authFirebase } from './utils/firebase/firebase';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
 
 function App() {
   const [user] = useAuthState(authFirebase);
@@ -18,7 +18,7 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<RootRoute />}>
-            <Route index element={<MainPage />} />
+            <Route index element={<WelcomePage />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route index path="/login" element={user ? <Navigate replace to='/' /> :  <LoginComponent />} />
             <Route path="/register" element={user ? <Navigate replace to='/' /> : <RegisterComponent />} />
