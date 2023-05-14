@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+
+.footer {
+  background-color: $main-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  &__logo {
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  &__info {
+    &-year {
+      margin: 1rem 0;
+      color: $link-color;
+      font-size: $font-size-md;
+    }
+
+    &-link {
+      margin: 1rem 2rem 1rem 0;
+      color: $link-color;
+      font-size: $font-size-md;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__logo {
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      width: 75%;
+    }
+
+    &__info {
+      &-year, &-link  {
+        margin: 0 0.5rem 0 0;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}

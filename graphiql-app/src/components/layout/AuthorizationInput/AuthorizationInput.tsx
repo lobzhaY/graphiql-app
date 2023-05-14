@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { IAuthorizationInput } from '../../../types/authorizationInterface/authorizationInterface';
 
 import './AuthorizationInput.scss';
+import React from 'react';
 
 function AuthorizationInput({
   id,

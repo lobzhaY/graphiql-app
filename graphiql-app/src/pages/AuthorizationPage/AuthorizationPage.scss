@@ -17,9 +17,9 @@
   font-family: $main-font;
   font-style: normal;
   font-weight: 700;
-  font-size: $font-size-headers-button;
+  font-size: $font-size-lg;
   line-height: 42px;
-  color: $background-inputs-buttons;
+  color: $second-color;
   margin: 0 0 60px;
   text-align: center;
 }
@@ -27,15 +27,15 @@
 .authorization-button {
   width: 420px;
   height: 80px;
-  background: $color-placeholder;
-  border: 3px solid $background-inputs-buttons;
-  border-radius: $border-radius-inputs-buttons;
+  background: $main-color;
+  border: 3px solid $second-color;
+  border-radius: $border-radius;
   font-family: $main-font;
   font-style: normal;
   font-weight: 700;
-  font-size: $font-size-headers-button;
+  font-size: $font-size-lg;
   line-height: 42px;
-  color: $background-inputs-buttons;
+  color: $second-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@
 
   &:hover {
     color: #fff;
-    background-color: $background-basic;
+    background-color: $background-color;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
   }
@@ -84,12 +84,12 @@
   font-weight: 300;
   font-size: $font-size-auth-links;
   line-height: 30px;
-  color: $color-text;
+  color: $text-color;
   text-align: center;
 }
 
 .auth-link {
-  color: $color-error;
+  color: $error-color;
   font-family: $main-font;
   font-style: normal;
   font-weight: 300;
@@ -102,11 +102,11 @@
   }
 
   &:active {
-    color: $color-link;
+    color: $link-color;
   }
 
   &:visited {
-    color: $background-inputs-buttons;
+    color: $second-color;
   }
 
 }
