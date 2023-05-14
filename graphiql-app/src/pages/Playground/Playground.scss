@@ -95,9 +95,24 @@ textarea {
     color: greenyellow;
 }
 
-@media (max-width: 702px) {
-    // .editor-container {
-    //     flex-direction: column;
-    // }
+.arrow-round {
+    width: 50%;
+    background-color: greenyellow;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+@media (max-width: 780px) {
+    .editor-container {
+        flex-direction: column;
+        .response-container {
+            width: 100%;
+            min-height: 200px;
+            margin-top: 10px;
+        }
+        .request-container {
+            min-height: 400px;
+        }
+    }
    }
 
