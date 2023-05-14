@@ -26,6 +26,25 @@ textarea {
    padding-top: 21px;
 }
 
+.aside-playground-open {
+    width: 385px;
+    background-color: #171616;
+    border-radius: 5px;
+    display: flex;
+   justify-content: center;
+   padding-top: 21px;
+    transition: all 0.3s ease-in-out;
+}
+
+.doka-svg {
+    fill: white;
+}
+
+.doka-svg:hover {
+    fill: greenyellow;
+    cursor: pointer;
+}
+
 .editor-container {
     display: flex;
     flex: 1;
