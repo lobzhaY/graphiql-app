@@ -1,0 +1,152 @@
+textarea {
+	resize: none;
+    background-color: #171616;
+    border: none;
+    overflow-y: auto;
+    outline : none;
+    color: aliceblue;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.wrapper-playground {
+    display: flex;
+    background-color: #34460D;
+    padding: 10px;
+    margin-top: 120px;
+    gap: 10px;
+}
+
+.aside-playground {
+    width: 85px;
+    background-color: #171616;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+.aside-playground-open {
+    width: 385px;
+    background-color: #171616;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding-top: 21px;
+    transition: all 0.3s ease-in-out;
+}
+
+.doka-svg {
+    fill: white;
+}
+
+.doka-svg:hover {
+    fill: greenyellow;
+    cursor: pointer;
+}
+
+.editor-container {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+
+    .request-container {
+        height: 600px;
+    }
+
+    .response-container {
+        background-color: #171616;
+        width: 45%;
+        color: aliceblue;
+        font-size: 14px;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: #232521;
+          }
+    }
+
+    .variables-container {
+        height: 200px;
+        background-color:#242424;
+        margin: 5px 10px 15px 5px;
+        width: 90%;
+    }
+
+    .editor-left-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        position: relative;
+    }
+    .editor-play {
+        position: absolute;
+        top: 10px;
+        right: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background-color: greenyellow;
+            border-radius: 10px;
+          }
+    }
+}
+
+.variables-wrapper {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    background-color:#171616;
+    border-top: 1px solid gray;
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+.variables-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin: 0px 5px;
+}
+
+.tab-active {
+    color: greenyellow;
+}
+
+.arrow-round {
+    width: 50%;
+    background-color: greenyellow;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+@media (max-width: 780px) {
+    .wrapper-playground {
+        flex-direction: column;
+    }
+    .aside-playground {
+        width: 100%;
+    }
+    .aside-playground-open {
+        width: 100%;
+        min-height: 300px;
+        background-color: #171616;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+    .editor-container {
+        flex-direction: column;
+
+        .response-container {
+            width: 100%;
+            min-height: 200px;
+        }
+        .request-container {
+            min-height: 400px;
+        }
+    }
+   }
+
