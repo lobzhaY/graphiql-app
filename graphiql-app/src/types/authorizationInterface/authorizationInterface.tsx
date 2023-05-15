@@ -24,3 +24,9 @@ export interface IAuthorizationInput {
     React.ClassAttributes<HTMLInputElement> &
     React.InputHTMLAttributes<HTMLInputElement>;
 }
+
+export interface registrationTypes {
+  name: string;
+  email: string;
+  password: string;
+}

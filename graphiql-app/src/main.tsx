@@ -5,10 +5,15 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import './i18n';
 
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './components/ErrorBoundary/ErrorFallback.tsx';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <App />
+      </ErrorBoundary>
     </BrowserRouter>
   </React.StrictMode>
 );

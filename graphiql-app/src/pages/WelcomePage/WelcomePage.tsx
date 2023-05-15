@@ -1,3 +1,4 @@
+import React from 'react';
 import './WelcomePage.scss';
 import { useTranslation } from 'react-i18next';
 

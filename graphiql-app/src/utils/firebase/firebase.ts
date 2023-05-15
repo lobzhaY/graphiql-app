@@ -1,12 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signOut,
-} from 'firebase/auth';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth, signOut } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAu8emR1nSieZP3srOkbWPKs6g7kkMxQ6k',
@@ -21,62 +15,8 @@ const appFirebase = initializeApp(firebaseConfig);
 const authFirebase = getAuth(appFirebase);
 const dbFirebase = getFirestore(appFirebase);
 
-const logInWithEmailAndPassword = async (email: string, password: string) => {
-  try {
-    await signInWithEmailAndPassword(authFirebase, email, password);
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(err);
-      alert(err.message);
-    }
-  }
-};
-
-interface registrationTypes {
-  name: string;
-  email: string;
-  password: string;
-}
-
-const registerWithEmailAndPassword = async ({ name, email, password }: registrationTypes) => {
-  try {
-    const res = await createUserWithEmailAndPassword(authFirebase, email, password);
-    const user = res.user;
-    await addDoc(collection(dbFirebase, 'users'), {
-      uid: user.uid,
-      name,
-      authProvider: 'local',
-      email,
-    });
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(err);
-      alert(err.message);
-    }
-  }
-};
-
-const sendPasswordReset = async (email: string) => {
-  try {
-    await sendPasswordResetEmail(authFirebase, email);
-    alert('Password reset link sent!');
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(err);
-      alert(err.message);
-    }
-  }
-};
-
 const logout = () => {
   signOut(authFirebase);
 };
 
-export {
-  authFirebase,
-  registerWithEmailAndPassword,
-  logout,
-  dbFirebase,
-  sendPasswordReset,
-  logInWithEmailAndPassword
-};
+export { authFirebase, logout, dbFirebase };
