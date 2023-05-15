@@ -1,0 +1,58 @@
+@import '../../../styles/variables.scss';
+
+.footer {
+  background-color: $main-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  &__logo {
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  &__info {
+    display: flex;
+
+    &-year {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 10px;
+      color: $link-color;
+      font-size: $font-size-md;
+      flex: 30%;
+    }
+
+    &-github {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      color: $link-color;
+      font-size: $font-size-md;
+    }
+
+    &-link {
+      margin: 0.5rem 2rem 0 0;
+      color: $link-color;
+      font-size: $font-size-md;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__logo {
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      width: 75%;
+    }
+
+    &__info {
+      &-year, &-link  {
+        margin: 0 0.5rem 0 0;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
