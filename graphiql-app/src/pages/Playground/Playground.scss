@@ -11,10 +11,10 @@ textarea {
 
 .wrapper-playground {
     display: flex;
-    // min-height: 100vh;
-    // min-width: 100vw;
+    background-color: #34460D;
+    padding: 10px;
     margin-top: 120px;
-    margin-bottom: 20px;
+    gap: 10px;
 }
 
 .aside-playground {
@@ -22,8 +22,8 @@ textarea {
     background-color: #171616;
     border-radius: 5px;
     display: flex;
-   justify-content: center;
-   padding-top: 21px;
+    justify-content: center;
+    padding: 10px 0px;
 }
 
 .aside-playground-open {
@@ -31,8 +31,8 @@ textarea {
     background-color: #171616;
     border-radius: 5px;
     display: flex;
-   justify-content: center;
-   padding-top: 21px;
+    justify-content: center;
+    padding-top: 21px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -48,17 +48,19 @@ textarea {
 .editor-container {
     display: flex;
     flex: 1;
-    margin: 0px 10px;
+    gap: 10px;
 
     .request-container {
         height: 600px;
-        margin-right: 10px;
     }
+
     .response-container {
         background-color: #171616;
         width: 45%;
         color: aliceblue;
         font-size: 14px;
+        border-radius: 5px;
+
         &:hover {
             background-color: #232521;
           }
@@ -96,9 +98,9 @@ textarea {
     height: auto;
     flex-direction: column;
     background-color:#171616;
-    margin-right: 10px;
     border-top: 1px solid gray;
     color: aliceblue;
+    border-radius: 5px;
 }
 
 .variables-header {
@@ -127,29 +129,20 @@ textarea {
     }
     .aside-playground {
         width: 100%;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: flex-start;
-        margin-left: 10px;
-        padding: 10px 0px 10px 10px;
     }
     .aside-playground-open {
         width: 100%;
         min-height: 300px;
         background-color: #171616;
         border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        padding: 21px;
-        margin-bottom: 10px;
         transition: all 0.3s ease-in-out;
     }
     .editor-container {
         flex-direction: column;
+
         .response-container {
             width: 100%;
             min-height: 200px;
-            margin-top: 10px;
         }
         .request-container {
             min-height: 400px;
