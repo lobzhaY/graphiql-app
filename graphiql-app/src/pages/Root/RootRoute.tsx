@@ -3,6 +3,7 @@ import FooterComponent from '../../components/layout/FooterComponent/FooterCompo
 import HeaderComponent from '../../components/layout/HeaderComponent/HeaderComponent';
 
 import './RootRoute.scss';
+import React from 'react';
 
 function RootRoute() {
   return (

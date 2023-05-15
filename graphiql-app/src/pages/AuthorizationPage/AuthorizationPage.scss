@@ -1,9 +1,15 @@
 @import '../../styles/variables.scss';
 
 .background {
-  width: 1920px;
-  height: 1048px;
-  border: 1px solid yellow;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.auth-container {
+  max-width: 26.25rem;
+  position: relative;
+  top: 12.5rem;
+  left: calc(100% - (26.25rem + 8.75rem));
 }
 
 .authorization-title {
@@ -11,7 +17,119 @@
   font-style: normal;
   font-weight: 700;
   font-size: $font-size-lg;
+  line-height: 2.6rem;
+  color: $second-color;
+  margin: 0 0 3.75rem;
+  text-align: center;
+}
+
+.form-auth {
+  width: 100%;
+}
+
+.authorization-button {
+  width: 26.25rem;
+  height: 5rem;
+  background: $main-color;
+  border: 3px solid $second-color;
+  border-radius: $border-radius;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $font-size-lg;
   line-height: 42px;
   color: $second-color;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0;
+  cursor: pointer;
+  outline: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+
+  &:hover {
+    color: #fff;
+    background-color: $background-color;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border-color: #DDDDDD;
+    color: #DDDDDD;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:active {
+    box-shadow: none;
+    background-color: #F7F7F7;
+    border-color: #000000;
+    transform: scale(.96);
+  }
+
+  &:focus-visible {
+    box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+    transition: box-shadow .2s;
+  }
+
 }
+
+.authorization-links {
+  width: 100%;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $font-size-auth-links;
+  line-height: 30px;
+  color: $text-color;
+  text-align: center;
+}
+
+.auth-link {
+  color: $error-color;
+  font-family: $main-font;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $font-size-auth-links;
+  line-height: 30px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $link-color;
+  }
+
+  &:visited {
+    color: $second-color;
+  }
+
+}
+
+@media (max-width: 780px) {
+  .auth-container {
+    position: static;
+    margin: 12.5rem auto;
+    min-width: 16.4rem;
+    min-height: 5.11rem;
+  }
+  .authorization-title {
+    font-size: $font-size-lg * 0.7;
+    line-height: 1.8rem;
+    margin-bottom: 2.6rem;
+  }
+  .authorization-button {
+    width: 90%;
+    margin: 1rem auto;
+    font-size: $font-size-lg * 0.7;
+    line-height: 1.8rem;
+  }
+ }

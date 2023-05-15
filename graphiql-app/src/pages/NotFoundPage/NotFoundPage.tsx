@@ -1,8 +1,10 @@
+import React from "react";
+
 function NotFoundPage() {
   return (
-    <footer>
+    <div>
       <p>404</p>
-    </footer>
+    </div>
   )
 }
 
