@@ -5,7 +5,7 @@ import './FooterComponent.scss';
 
 function FooterComponent() {
   const { t, i18n } = useTranslation();
-
+  console.log(i18n);
   return (
     <footer className="footer">
       <a href="https://rs.school/react/" target="_blank">
