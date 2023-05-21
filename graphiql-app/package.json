@@ -20,6 +20,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "eslint-config-standard-with-typescript": "^34.0.1",
     "firebase": "^9.21.0",
+    "graphql": "^16.6.0",
     "i18next": "^22.4.15",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
@@ -29,9 +30,9 @@
     "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.43.9",
     "react-i18next": "^12.2.2",
-    "react-toastify": "^9.1.2",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.0",
+    "react-toastify": "^9.1.2",
     "vite-tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {

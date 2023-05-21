@@ -1,3 +1,4 @@
+import React from 'react';
 import '../../pages/Playground/Playground.scss'
 
 type PropsType = {

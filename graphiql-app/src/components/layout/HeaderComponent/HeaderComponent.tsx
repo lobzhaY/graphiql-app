@@ -62,7 +62,9 @@ function HeaderComponent() {
           </>
         ) : (
           <>
-            <button className="header__buttons-start">{t('header.started')}</button>
+            <Link to="/graphiql">
+              <button className="header__buttons-start">{t('header.started')}</button>
+            </Link>
             <button className="header__buttons-end" onClick={logout}>
               Logout
             </button>
