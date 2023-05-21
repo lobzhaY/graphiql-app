@@ -9,11 +9,11 @@ import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from './components/ErrorBoundary/ErrorFallback.tsx';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+ <React.StrictMode>
     <BrowserRouter>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <App />
       </ErrorBoundary>
     </BrowserRouter>
-  </React.StrictMode>
+ </React.StrictMode>
 );
