@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.aside-playground .documentation {
+  display: none;
+}
+
+.aside-playground .img-close {
+  display: block;
+  cursor: pointer;
+}
+
+.svg:hover {
+  filter: invert(0) sepia(1) saturate(8.4) hue-rotate(28.8deg) brightness(1);
+}
+
+.aside-playground .img-open {
+  display: none;
+}
+
+.aside-playground-open {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px 30px;
+}
+
+.aside-playground-open .documentation {
+  padding: 10px 0;
+  width: 100%;
+  color: $link-color;
+}
+
+.aside-playground-open .img-close {
+  display: none;
+}
+
+.aside-playground-open .img-open {
+  display: block;
+  cursor: pointer;
+}

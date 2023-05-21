@@ -39,3 +39,18 @@
     }
   }
 }
+
+@media (max-height: 1000px) {
+  .welcome-page {
+    bottom: 120px;
+
+    &__block {
+      height: unset;
+  
+      &-img {
+        max-width: 115px;
+        max-height: 105px;
+      }
+    }
+  }  
+}
