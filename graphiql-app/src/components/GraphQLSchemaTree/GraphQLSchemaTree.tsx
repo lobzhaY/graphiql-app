@@ -7,7 +7,7 @@ function GraphQLSchemaTree({ schema }) {
     if (type?.kind === 'OBJECT') {
       if (type?.fields) {
         return (
-          <div onClick={() => setShow(prev => !prev)}>
+          <div className="title" onClick={() => setShow(prev => !prev)}>
             <strong>{type?.name}</strong>
             {show &&
               <ul>

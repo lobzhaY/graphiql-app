@@ -36,13 +36,8 @@ textarea {
     transition: all 0.3s ease-in-out;
 }
 
-.doka-svg {
-    fill: white;
-}
-
-.doka-svg:hover {
-    fill: greenyellow;
-    cursor: pointer;
+.title {
+    padding: 5px 0;
 }
 
 .editor-container {

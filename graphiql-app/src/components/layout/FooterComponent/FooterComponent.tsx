@@ -11,7 +11,6 @@ function FooterComponent() {
       <a href="https://rs.school/react/" target="_blank">
         <img src="src/assets/logo-rsschool.svg" alt="logo" className="footer__logo" />
       </a>
-      {/* <div className="footer__info-year"> */}
       <div className="footer__info-year">2023</div>
       <div className="footer__info-github">
         <a href="https://github.com/lobzhaY/graphiql-app" target="_blank">
@@ -24,8 +23,6 @@ function FooterComponent() {
           <div className="footer__info-link">{t("footer.alesia")}</div>
         </a>
       </div>
-
-      {/* </div> */}
     </footer>
   )
 }
