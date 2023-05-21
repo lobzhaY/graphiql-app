@@ -1,3 +1,4 @@
+import GraphQLSchemaTree from 'components/GraphQLSchemaTree/GraphQLSchemaTree';
 import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql';
 import React, { useEffect, useState } from 'react';
 
@@ -21,28 +22,28 @@ function AssidePlayground() {
     })
       .then((res) => res.json())
       .then((schemaJSON) => setSchemaPrint(schemaJSON.data['__schema'].types))
-     // .then((sce) => buildTree(sce.data['__schema'].types))
+    // .then((sce) => buildTree(sce.data['__schema'].types))
     // .then(schemaJSON => printSchema(buildClientSchema(schemaJSON.data)))
     // .then(clientSchema => setSchemaPrint(clientSchema)); 
   };
-  
+
   function build(list) {
-    
+
     const html: JSX.Element[] = [];
     let item, deep;
 
     for (item in list) {
 
-        deep = typeof list[item] == 'object';
+      deep = typeof list[item] == 'object';
 
-        console.log(Array.isArray(list[item]));
-        
+      // console.log(Array.isArray(list[item]));
 
-        html.push(<li key={item} onClick={(e) => changeClass(e)} ><span>{item} </span>{deep ? build(list[item]) : list[item]}</li>)
+
+      html.push(<li key={item} onClick={(e) => changeClass(e)} ><span>{item} </span>{deep ? build(list[item]) : list[item]}</li>)
 
     }
-    
-    return <ul style={{ visibility: !visibleClass ? 'hidden' : 'visible'}}>{html}</ul>
+
+    return <ul style={{ visibility: !visibleClass ? 'hidden' : 'visible' }}>{html}</ul>
   }
 
   function changeClass(e) {
@@ -55,12 +56,11 @@ function AssidePlayground() {
     getSchema();
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     if (schemaPrint) {
-    setPrintMenu(build(schemaPrint));
+      setPrintMenu(build(schemaPrint));
     }
-  }, [schemaPrint]) 
-
+  }, [schemaPrint])
 
   return (
     <div className={openDocumentation ? 'aside-playground-open' : 'aside-playground'}>
@@ -80,7 +80,11 @@ function AssidePlayground() {
           />
         </svg>
       </div>
-      <div style={{ width: '100%', color: 'white' }}>{printMenu}</div>
+      {/* <div style={{ width: '100%', color: 'white' }}>{printMenu}</div> */}
+      {/* <GraphQLSchemaTree schema={schemaPrint} /> */}
+      {schemaPrint?.map(function (item) {
+        return <GraphQLSchemaTree schema={item} />;
+      })}
     </div>
   );
 }
