@@ -80,11 +80,11 @@ function AssidePlayground() {
           />
         </svg>
       </div>
-      {/* <div style={{ width: '100%', color: 'white' }}>{printMenu}</div> */}
-      {/* <GraphQLSchemaTree schema={schemaPrint} /> */}
-      {schemaPrint?.map(function (item) {
-        return <GraphQLSchemaTree schema={item} />;
-      })}
+      <div style={{ width: '100%', color: 'white' }}>
+        {schemaPrint?.map(function (item) {
+          return <GraphQLSchemaTree schema={item} />;
+        })}
+      </div>
     </div>
   );
 }
