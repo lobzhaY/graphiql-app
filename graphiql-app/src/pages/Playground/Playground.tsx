@@ -16,19 +16,23 @@ function Playground() {
   const [request, setRequest] = useState<string>(initialRequest);
   const [response, setResponse] = useState<string>('');
   const [variables, setVariables] = useState<string>('');
-  const [headers, setHeaders] = useState<string>('');
+  const [headers1, setHeaders1] = useState<string>('');
   const [activeTab, setActiveTab] = useState<string>('');
   const [changeArrow, setChangeArrow] = useState<boolean>(false);
 
+  
   const makeRequest = async (query: string) => {
+    const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
     const res = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
+        ...headersFromTextarea
       },
+      
       body: JSON.stringify({ query, variables: variables ? JSON.parse(variables) : '' }),
     });
-    const dataResults = await res.json().then((data) => JSON.stringify(data, null, '\t'));
+    const dataResults = await res.json().then((data) => JSON.stringify(data, null, ' '));
     setResponse(dataResults);
   };
 
@@ -104,8 +108,8 @@ function Playground() {
             {activeTab === 'headers' ? (
               <Textarea
                 class={'variables-container'}
-                defaultValue={headers}
-                setValue={setHeaders}
+                defaultValue={headers1}
+                setValue={setHeaders1}
               />
             ) : null}
           </div>
