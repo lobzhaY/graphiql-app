@@ -40,5 +40,7 @@ $ npm run dev
 ***Authors***
 -------------------------
 [lobzhaY](https://github.com/lobzhaY) 
+
 [Alesya Branavitskaya](https://github.com/Alese4ka)
+
 [MariStakhovskaya](https://github.com/MariStakhovskaya) 
