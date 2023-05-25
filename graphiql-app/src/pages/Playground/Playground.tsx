@@ -23,19 +23,19 @@ function Playground() {
   const [headers1, setHeaders1] = useState<string>('');
   const [activeTab, setActiveTab] = useState<string>('');
   const [changeArrow, setChangeArrow] = useState<boolean>(false);
-  
+
   const makeRequest = async (query: string) => {
     let headersFromTextarea
 
     try {
-      headersFromTextarea = headers1!=='' && JSON.parse(headers1)
-    } catch(err) {
+      headersFromTextarea = headers1 !== '' && JSON.parse(headers1)
+    } catch (err) {
       toast.error('Headers должен быть в виде {"x-page": "4"}');
     }
-let variablesFromTextarea
+    let variablesFromTextarea
     try {
-      variablesFromTextarea = variables!=='' && JSON.parse(variables)
-    } catch(err) {
+      variablesFromTextarea = variables !== '' && JSON.parse(variables)
+    } catch (err) {
       toast.error('Variables должен быть в виде {"page": 4}');
     }    // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
     const res = await fetch(url, {
@@ -44,16 +44,14 @@ let variablesFromTextarea
         'Content-type': 'application/json',
         ...headersFromTextarea
       },
-      
+
       body: JSON.stringify({ query, variables: variables ? variablesFromTextarea : '' }),
     });
-     await res.json().then((data) => setResponse(JSON.stringify(data, null, ' ')))
-    .catch(() => {
-      toast.error('Произошла ошибка при выполнении запроса.');
-    });
+    await res.json().then((data) => setResponse(JSON.stringify(data, null, ' ')))
+      .catch(() => {
+        toast.error('Произошла ошибка при выполнении запроса.');
+      });
   };
-
- 
 
   const onclickRequestHandler = () => {
     setResponse('')
@@ -74,22 +72,20 @@ let variablesFromTextarea
     setChangeArrow(!changeArrow);
     changeArrow ? setActiveTab('') : setActiveTab('variables');
   };
- 
+
   return (
     <div className="wrapper-playground">
-     
+
       <AssidePlayground />
-      
+
       <div className="editor-container">
         <div className="editor-left-container">
-          {/* {schemaPrint?.map(function (item) {
-            return <GraphQLSchemaTree schema={item} />;
-          })} */}
           <div onClick={onclickRequestHandler} className="editor-play">
             <svg
+              className="svg"
               xmlns="http://www.w3.org/2000/svg"
               height="48"
-              fill="gray"
+              fill="#ffffff"
               viewBox="0 96 960 960"
               width="48"
             >
@@ -136,11 +132,11 @@ let variablesFromTextarea
             ) : null}
           </div>
         </div>
-       
+
         <pre className="response-container">{response}</pre>
       </div>
     </div>
-   
+
   );
 }
 

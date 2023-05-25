@@ -4,18 +4,25 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { authFirebase, logout } from '../../../utils/firebase/firebase';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Switcher from "react-switcher-rc";
 
 function HeaderComponent() {
+  const [switcherState, setSwitcherState] = useState(false);
   const [user] = useAuthState(authFirebase);
 
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (language: any) => {
-    i18n.changeLanguage(language);
+  const changeLanguage = (e: any) => {
+    setSwitcherState(e.target.checked);
+    if (e.target.checked === true) {
+      i18n.changeLanguage('en');
+    } else {
+      i18n.changeLanguage('ru');
+    }
   };
 
   const header = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState('120px');
+  const [height, setHeight] = useState('80px');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +33,7 @@ function HeaderComponent() {
       }
       if (scroll > 254) return;
 
-      const defaultHeight = 100;
+      const defaultHeight = 80;
 
       let newHeight = defaultHeight - scroll / 7;
       if (newHeight < 60) newHeight = 60;
@@ -55,10 +62,13 @@ function HeaderComponent() {
             <Link to="/register">
               <button className="header__buttons-signup">{t('header.signup')}</button>
             </Link>
-            <div className="header__buttons-language">
-              <button onClick={() => changeLanguage('en')}>EN</button>
-              <button onClick={() => changeLanguage('ru')}>RU</button>
-            </div>
+            <Switcher
+              name="my-switcher"
+              onChange={changeLanguage}
+              checked={switcherState}
+              checkedIcon="EN"
+              unCheckedIcon="RU"
+            />
           </>
         ) : (
           <>
@@ -68,10 +78,13 @@ function HeaderComponent() {
             <button className="header__buttons-end" onClick={logout}>
               Logout
             </button>
-            <div className="header__buttons-language">
-              <button onClick={() => changeLanguage('en')}>EN</button>
-              <button onClick={() => changeLanguage('ru')}>RU</button>
-            </div>
+            <Switcher
+              name="my-switcher"
+              onChange={changeLanguage}
+              checked={switcherState}
+              checkedIcon="EN"
+              unCheckedIcon="RU"
+            />
           </>
         )}
       </div>
