@@ -10,7 +10,7 @@ function HeaderComponent() {
 
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (language: any) => {
+  const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
   };
 
@@ -66,7 +66,7 @@ function HeaderComponent() {
               <button className="header__buttons-start">{t('header.started')}</button>
             </Link>
             <button className="header__buttons-end" onClick={logout}>
-              Logout
+              {t('header.logout')}
             </button>
             <div className="header__buttons-language">
               <button onClick={() => changeLanguage('en')}>EN</button>

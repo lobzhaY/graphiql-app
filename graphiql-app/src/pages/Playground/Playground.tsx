@@ -82,9 +82,6 @@ let variablesFromTextarea
       
       <div className="editor-container">
         <div className="editor-left-container">
-          {/* {schemaPrint?.map(function (item) {
-            return <GraphQLSchemaTree schema={item} />;
-          })} */}
           <div onClick={onclickRequestHandler} className="editor-play">
             <svg
               xmlns="http://www.w3.org/2000/svg"
