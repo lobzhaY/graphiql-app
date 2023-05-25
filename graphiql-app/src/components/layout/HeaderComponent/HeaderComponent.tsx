@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import './HeaderComponent.scss';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { authFirebase, logout } from '../../../utils/firebase/firebase';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 function HeaderComponent() {
   const [user] = useAuthState(authFirebase);
+
+  const { pathname } = useLocation();
 
   const { t, i18n } = useTranslation();
 
@@ -62,12 +64,24 @@ function HeaderComponent() {
           </>
         ) : (
           <>
-            <Link to="/graphiql">
-              <button className="header__buttons-start">{t('header.started')}</button>
-            </Link>
-            <button className="header__buttons-end" onClick={logout}>
-              Logout
-            </button>
+            {pathname === '/graphiql' ? (
+              <>
+                <button className="header__buttons-end" onClick={logout}>
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                {' '}
+                <Link to="/graphiql">
+                  <button className="header__buttons-start">{t('header.started')}</button>
+                </Link>
+                <button className="header__buttons-end" onClick={logout}>
+                  Logout
+                </button>
+              </>
+            )}
+
             <div className="header__buttons-language">
               <button onClick={() => changeLanguage('en')}>EN</button>
               <button onClick={() => changeLanguage('ru')}>RU</button>

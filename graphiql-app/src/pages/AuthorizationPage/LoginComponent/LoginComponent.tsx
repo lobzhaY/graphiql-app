@@ -37,7 +37,7 @@ function LoginComponent() {
     try {
       await signInWithEmailAndPassword(authFirebase, email, password);
       reset();
-      navigate('/');
+      navigate('/graphiql');
     } catch (err) {
       if (err instanceof Error) {
         showErrorToast(err.message);

@@ -21,7 +21,7 @@ function App() {
         <Route path="/" element={<RootRoute />}>
             <Route index element={<WelcomePage />} />
             <Route path="/404" element={<NotFoundPage />} />
-            <Route path="/graphiql" element={<Playground />} />
+            <Route path="/graphiql" element={user ? <Playground/> : <Navigate replace to='/' />} />
             <Route index path="/login" element={user ? <Navigate replace to='/' /> :  <LoginComponent />} />
             <Route path="/register" element={user ? <Navigate replace to='/' /> : <RegisterComponent />} />
             <Route path="/reset" element={user ? <Navigate replace to='/' /> : <ResetComponent />} />
