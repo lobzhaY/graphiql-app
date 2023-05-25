@@ -56,9 +56,6 @@ function Playground() {
       <AssidePlayground />
       <div className="editor-container">
         <div className="editor-left-container">
-          {/* {schemaPrint?.map(function (item) {
-            return <GraphQLSchemaTree schema={item} />;
-          })} */}
           <div onClick={onclickRequestHandler} className="editor-play">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +107,6 @@ function Playground() {
             ) : null}
           </div>
         </div>
-
         <pre className="response-container">{response}</pre>
       </div>
     </div>
