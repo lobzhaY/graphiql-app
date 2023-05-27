@@ -1,5 +1,5 @@
 import GraphQLSchemaTree from 'components/GraphQLSchemaTree/GraphQLSchemaTree';
-import { buildClientSchema, getIntrospectionQuery, printSchema } from 'graphql';
+import { getIntrospectionQuery, printSchema } from 'graphql';
 import React, { useEffect, useState } from 'react';
 import './AssidePlayground.scss';
 

@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AssidePlayground from '../../components/asside-playground/AssidePlayground';
 import Textarea from '../../components/textarea/Textarea';
 import './Playground.scss';
+import Sidebar from 'components/asside-playground/aside/Sidebar';
 
 const url = 'https://rickandmortyapi.com/graphql';
 
@@ -76,9 +76,10 @@ function Playground() {
   return (
     <div className="wrapper-playground">
 
-      <AssidePlayground />
+      {/* <AssidePlayground /> */}
 
       <div className="editor-container">
+        <Sidebar />
         <div className="editor-left-container">
           <div onClick={onclickRequestHandler} className="editor-play">
             <svg

@@ -76,7 +76,7 @@ function HeaderComponent() {
               <button className="header__buttons-start">{t('header.started')}</button>
             </Link>
             <button className="header__buttons-end" onClick={logout}>
-              Logout
+              {t('header.logout')}
             </button>
             <Switcher
               name="my-switcher"

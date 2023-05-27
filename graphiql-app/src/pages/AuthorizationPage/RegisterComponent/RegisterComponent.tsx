@@ -21,6 +21,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../../../components/loader/Loader';
+import { useTranslation } from 'react-i18next';
 
 function RegisterComponent() {
   const {
@@ -32,10 +33,11 @@ function RegisterComponent() {
 
   const [user, loading] = useAuthState(authFirebase);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (user) navigate('/');
-  }, [user, loading]);
+  }, [user, loading, navigate]);
 
   const registerWithEmailAndPassword = async ({ name, email, password }: registrationTypes) => {
     try {
@@ -71,7 +73,7 @@ function RegisterComponent() {
         <Loader />
       ) : (
         <>
-          <h2 className="authorization-title">Sign up form</h2>
+          <h2 className="authorization-title">{t('registr.signupform')}</h2>
           <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
             <AuthorizationInput
               type="text"
@@ -83,7 +85,7 @@ function RegisterComponent() {
                 }),
               }}
               hookError={errors.name}
-              placeholder="Full Name"
+              placeholder={t('registr.fullname')}
             />
             <AuthorizationInput
               type="text"
@@ -110,15 +112,15 @@ function RegisterComponent() {
               placeholder="Password"
             />
             <button type="submit" className="authorization-button">
-              Register
+              {t('registr.registrButton')}
             </button>
           </form>
           <div className="authorization-links">
-            Already have an account?{' '}
+          {t('registr.account')}{' '}
             <Link to="/login" className="auth-link">
-              Login
+            {t('registr.login')}
             </Link>{' '}
-            now.
+            {t('registr.now')}.
           </div>
         </>
       )}

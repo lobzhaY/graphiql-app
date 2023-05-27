@@ -7,7 +7,25 @@
   "header": {
     "login": "Log in",
     "signup": "Sign up",
-    "started": "Get Started"
+    "started": "Get Started",
+    "logout": "Logout"
+    
+  },
+  "login": {
+    "loginform": "Log in form",
+    "loginButton": "Login",
+    "forgot": "Forgot Password",
+    "account": "Don't have an account?",
+    "register": "Register",
+    "now": "now"
+  },
+  "registr": {
+    "signupform": "Sign up form",
+    "fullname": "Full name",
+    "registrButton": "Register",
+    "account": "Already have an account?",
+    "login": "Login",
+    "now": "now"
   },
   "footer": {
     "yuliya": "Github Yuliya",
