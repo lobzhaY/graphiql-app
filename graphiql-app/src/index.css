@@ -1,8 +1,22 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #222;
 }
 

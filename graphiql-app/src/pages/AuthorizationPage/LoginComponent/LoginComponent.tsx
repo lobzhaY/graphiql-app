@@ -59,58 +59,60 @@ function LoginComponent() {
   };
 
   return (
-    <div className="auth-container">
-      <ToastContainer draggable={false} closeOnClick={true} />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <h2 className="authorization-title">{t('login.loginform')}</h2>
-          <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
-            <AuthorizationInput
-              type="text"
-              id="email-login"
-              hookRegister={{
-                ...register('email', {
-                  required: 'Error email!',
-                  validate: (value) => validationEmail(value),
-                }),
-              }}
-              hookError={errors.email}
-              placeholder="E-mail Address"
-            />
-            <AuthorizationInput
-              type="password"
-              id="password-login"
-              hookRegister={{
-                ...register('password', {
-                  required: 'Error password!',
-                  validate: (value) => validationPassword(value),
-                }),
-              }}
-              hookError={errors.password}
-              placeholder="Password"
-            />
-            <button className="authorization-button" type="submit">
-            {t('login.loginButton')}
-            </button>
-          </form>
-          <div className="authorization-links">
-            <div>
-              <Link to="/reset" className="auth-link">
-                {t('login.forgot')}
-              </Link>
+    <div className="auth-wrapper">
+      <div className="auth-container">
+        <ToastContainer draggable={false} closeOnClick={true} />
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <h2 className="authorization-title">{t('login.loginform')}</h2>
+            <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
+              <AuthorizationInput
+                type="text"
+                id="email-login"
+                hookRegister={{
+                  ...register('email', {
+                    required: 'Error email!',
+                    validate: (value) => validationEmail(value),
+                  }),
+                }}
+                hookError={errors.email}
+                placeholder="E-mail Address"
+              />
+              <AuthorizationInput
+                type="password"
+                id="password-login"
+                hookRegister={{
+                  ...register('password', {
+                    required: 'Error password!',
+                    validate: (value) => validationPassword(value),
+                  }),
+                }}
+                hookError={errors.password}
+                placeholder="Password"
+              />
+              <button className="authorization-button" type="submit">
+                {t('login.loginButton')}
+              </button>
+            </form>
+            <div className="authorization-links">
+              <div>
+                <Link to="/reset" className="auth-link">
+                  {t('login.forgot')}
+                </Link>
+              </div>
+              <div>
+                {t('login.account')}{' '}
+                <Link to="/register" className="auth-link">
+                  {t('login.register')}
+                </Link>{' '}
+                {t('login.now')}.
+              </div>
             </div>
-            <div>
-             {t('login.account')}{' '}
-              <Link to="/register" className="auth-link">
-                {t('login.register')}
-              </Link>{' '}
-               {t('login.now')}.
-            </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

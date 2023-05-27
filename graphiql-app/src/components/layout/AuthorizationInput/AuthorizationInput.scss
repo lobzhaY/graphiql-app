@@ -45,8 +45,8 @@
 
 @media (max-width: 780px) {
   .auth-input-container {
-    min-width: 16.4rem;
-    min-height: 5.11rem;
+    max-width: 16.4rem;
+    max-height: 5.11rem;
     width: 100%;
     margin: 0 auto;
     display: flex;

@@ -32,17 +32,39 @@ function App() {
           <Route
             index
             path="/login"
-            element={loading ? <Loader /> : user ? <Navigate replace to="/" /> : <LoginComponent />}
+            element={
+              loading ? (
+                <Loader />
+              ) : user ? (
+                <Navigate replace to="/graphiql/*" />
+              ) : (
+                <LoginComponent />
+              )
+            }
           />
           <Route
             path="/register"
             element={
-              loading ? <Loader /> : user ? <Navigate replace to="/" /> : <RegisterComponent />
+              loading ? (
+                <Loader />
+              ) : user ? (
+                <Navigate replace to="/graphiql/*" />
+              ) : (
+                <RegisterComponent />
+              )
             }
           />
           <Route
             path="/reset"
-            element={loading ? <Loader /> : user ? <Navigate replace to="/" /> : <ResetComponent />}
+            element={
+              loading ? (
+                <Loader />
+              ) : user ? (
+                <Navigate replace to="/graphiql/*" />
+              ) : (
+                <ResetComponent />
+              )
+            }
           />
         </Route>
         <Route path="*" element={<Navigate replace to="/404" />} />

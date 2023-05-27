@@ -62,39 +62,41 @@ function ResetComponent() {
   };
 
   return (
-    <div className="auth-container">
-      <ToastContainer draggable={false} closeOnClick={true} />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <h2 className="authorization-title">Reset password</h2>
-          <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
-            <AuthorizationInput
-              type="text"
-              id="email-register"
-              hookRegister={{
-                ...register('email', {
-                  required: 'Error email!',
-                  validate: (value) => validationEmail(value),
-                }),
-              }}
-              hookError={errors.email}
-              placeholder="E-mail Address"
-            />
-            <button type="submit" className="authorization-button">
-              Send password reset email
-            </button>
-          </form>
-          <div className="authorization-links">
-            Don&apos;t have an account?
-            <Link to="/register" className="auth-link">
-              Register
-            </Link>
-            now.
-          </div>
-        </>
-      )}
+    <div className="auth-wrapper">
+      <div className="auth-container">
+        <ToastContainer draggable={false} closeOnClick={true} />
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <h2 className="authorization-title">Reset password</h2>
+            <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
+              <AuthorizationInput
+                type="text"
+                id="email-register"
+                hookRegister={{
+                  ...register('email', {
+                    required: 'Error email!',
+                    validate: (value) => validationEmail(value),
+                  }),
+                }}
+                hookError={errors.email}
+                placeholder="E-mail Address"
+              />
+              <button type="submit" className="authorization-button">
+                Send password reset email
+              </button>
+            </form>
+            <div className="authorization-links">
+              Don&apos;t have an account?
+              <Link to="/register" className="auth-link">
+                Register
+              </Link>
+              now.
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

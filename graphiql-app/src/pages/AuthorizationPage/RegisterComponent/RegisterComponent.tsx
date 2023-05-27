@@ -53,7 +53,7 @@ function RegisterComponent() {
         email,
       });
       reset();
-      navigate('/');
+      navigate('/graphiql');
     } catch (err) {
       if (err instanceof Error) {
         showErrorToast(err.message);
@@ -70,63 +70,65 @@ function RegisterComponent() {
   };
 
   return (
-    <div className="auth-container">
-      <ToastContainer draggable={false} closeOnClick={true} />
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <h2 className="authorization-title">{t('registr.signupform')}</h2>
-          <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
-            <AuthorizationInput
-              type="text"
-              id="name-register"
-              hookRegister={{
-                ...register('name', {
-                  required: 'Error name!',
-                  validate: (value) => validationName(value),
-                }),
-              }}
-              hookError={errors.name}
-              placeholder={t('registr.fullname')}
-            />
-            <AuthorizationInput
-              type="text"
-              id="email-register"
-              hookRegister={{
-                ...register('email', {
-                  required: 'Error email!',
-                  validate: (value) => validationEmail(value),
-                }),
-              }}
-              hookError={errors.email}
-              placeholder="E-mail Address"
-            />
-            <AuthorizationInput
-              type="password"
-              id="password-register"
-              hookRegister={{
-                ...register('password', {
-                  required: 'Error password!',
-                  validate: (value) => validationPassword(value),
-                }),
-              }}
-              hookError={errors.password}
-              placeholder="Password"
-            />
-            <button type="submit" className="authorization-button">
-              {t('registr.registrButton')}
-            </button>
-          </form>
-          <div className="authorization-links">
-          {t('registr.account')}{' '}
-            <Link to="/login" className="auth-link">
-            {t('registr.login')}
-            </Link>{' '}
-            {t('registr.now')}.
-          </div>
-        </>
-      )}
+    <div className="auth-wrapper">
+      <div className="auth-container">
+        <ToastContainer draggable={false} closeOnClick={true} />
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <h2 className="authorization-title">{t('registr.signupform')}</h2>
+            <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
+              <AuthorizationInput
+                type="text"
+                id="name-register"
+                hookRegister={{
+                  ...register('name', {
+                    required: 'Error name!',
+                    validate: (value) => validationName(value),
+                  }),
+                }}
+                hookError={errors.name}
+                placeholder={t('registr.fullname')}
+              />
+              <AuthorizationInput
+                type="text"
+                id="email-register"
+                hookRegister={{
+                  ...register('email', {
+                    required: 'Error email!',
+                    validate: (value) => validationEmail(value),
+                  }),
+                }}
+                hookError={errors.email}
+                placeholder="E-mail Address"
+              />
+              <AuthorizationInput
+                type="password"
+                id="password-register"
+                hookRegister={{
+                  ...register('password', {
+                    required: 'Error password!',
+                    validate: (value) => validationPassword(value),
+                  }),
+                }}
+                hookError={errors.password}
+                placeholder="Password"
+              />
+              <button type="submit" className="authorization-button">
+                {t('registr.registrButton')}
+              </button>
+            </form>
+            <div className="authorization-links">
+              {t('registr.account')}{' '}
+              <Link to="/login" className="auth-link">
+                {t('registr.login')}
+              </Link>{' '}
+              {t('registr.now')}.
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

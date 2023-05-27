@@ -33,10 +33,18 @@
       margin-right: 2rem;
       padding: 1rem 5rem;
 
+      &:disabled {
+        cursor: not-allowed;
+        border-color: #DDDDDD;
+        color: #DDDDDD;
+        opacity: 0.6;
+      }
+
       &:hover {
         color: $main-color;
         background-color: $second-color;
       }
+
     }
 
     &-signup {
@@ -44,6 +52,14 @@
       background-color: $second-color;
       border-radius: 10px;
       padding: 1rem 5rem;
+      
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+        color: #DDDDDD;
+        border: 2px solid #DDDDDD;
+        background-color: $main-color;
+      }
 
       &:hover {
         color: $second-color;
@@ -101,7 +117,7 @@
 }
 
 .sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   transition: all 0.5s ease;
@@ -119,9 +135,25 @@
   }
 }
 
+@media (max-width: 992px) {
+  .header {
+    &__buttons {
+      font-size: $font-size-sm * 0.7;
+      margin: 1rem 0.5rem;
+
+      &-login,
+      &-signup,
+      &-start, &-end {
+        padding: 1rem 3rem;
+      }
+    }
+  }
+}
 
 @media (max-width: 768px) {
   .header {
+    width: 100%;
+    min-width: 320px;
     .desktop {
       display: none;
     }
@@ -142,10 +174,13 @@
       margin: 1rem 0.5rem;
 
       &-login {
+        width: 100px;
         color: $second-color;
         border: unset;
         background-color: $main-color;
-        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-right: 0.5rem;
 
         &:hover {
@@ -155,9 +190,12 @@
       }
 
       &-signup {
+        width: 100px;
         color: $second-color;
         background-color: $main-color;
-        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           border: unset;
@@ -168,21 +206,6 @@
 
       &-start {
         padding: 0.5rem 1rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  .header {
-    &__buttons {
-      font-size: $font-size-sm * 0.7;
-      margin: 1rem 0.5rem;
-
-      &-login,
-      &-signup,
-      &-start, &-end {
-        padding: 1rem 3rem;
       }
     }
   }

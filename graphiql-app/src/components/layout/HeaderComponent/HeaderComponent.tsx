@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -22,7 +22,7 @@ function HeaderComponent() {
 
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (e: any) => {
+  const changeLanguage = (e: ChangeEvent<HTMLInputElement>) => {
     setSwitcherState(e.target.checked);
     if (e.target.checked === true) {
       i18n.changeLanguage('en');
@@ -67,10 +67,20 @@ function HeaderComponent() {
         {!user ? (
           <>
             <Link to="/login">
-              <button className="header__buttons-login">{t('header.login')}</button>
+              <button
+                className="header__buttons-login"
+                disabled={pathname === '/login' ? true : false}
+              >
+                {t('header.login')}
+              </button>
             </Link>
             <Link to="/register">
-              <button className="header__buttons-signup">{t('header.signup')}</button>
+              <button
+                className="header__buttons-signup"
+                disabled={pathname === '/register' ? true : false}
+              >
+                {t('header.signup')}
+              </button>
             </Link>
             <Switcher
               name="my-switcher"
@@ -82,7 +92,7 @@ function HeaderComponent() {
           </>
         ) : (
           <>
-            {pathname === '/graphiql' ? (
+            {pathname !== '/' ? (
               <>
                 <button className="header__buttons-end" onClick={logout}>
                   Logout

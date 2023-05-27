@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Sidebar from 'components/asside-playground/aside/Sidebar';
 import Textarea from '../../components/textarea/Textarea';
-import AssidePlayground from '../../components/asside-playground/AssidePlayground';
 
 import './Playground.scss';
 
@@ -31,36 +30,38 @@ function Playground() {
   const [changeArrow, setChangeArrow] = useState<boolean>(false);
 
   const makeRequest = async (query: string) => {
-    let headersFromTextarea
+    let headersFromTextarea;
 
     try {
-      headersFromTextarea = headers1 !== '' && JSON.parse(headers1)
+      headersFromTextarea = headers1 !== '' && JSON.parse(headers1);
     } catch (err) {
       toast.error('Headers должен быть в виде {"x-page": "4"}');
     }
-    let variablesFromTextarea
+    let variablesFromTextarea;
     try {
-      variablesFromTextarea = variables !== '' && JSON.parse(variables)
+      variablesFromTextarea = variables !== '' && JSON.parse(variables);
     } catch (err) {
       toast.error('Variables должен быть в виде {"page": 4}');
-    }    // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
+    } // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
     const res = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
-        ...headersFromTextarea
+        ...headersFromTextarea,
       },
 
       body: JSON.stringify({ query, variables: variables ? variablesFromTextarea : '' }),
     });
-    await res.json().then((data) => setResponse(JSON.stringify(data, null, ' ')))
+    await res
+      .json()
+      .then((data) => setResponse(JSON.stringify(data, null, ' ')))
       .catch(() => {
         toast.error('Произошла ошибка при выполнении запроса.');
       });
   };
 
   const onclickRequestHandler = () => {
-    setResponse('')
+    setResponse('');
     makeRequest(request);
   };
 
@@ -81,9 +82,6 @@ function Playground() {
 
   return (
     <div className="wrapper-playground">
-
-      {/* <AssidePlayground /> */}
-
       <div className="editor-container">
         <Sidebar />
         <div className="editor-left-container">
@@ -142,7 +140,6 @@ function Playground() {
         <pre className="response-container">{response}</pre>
       </div>
     </div>
-
   );
 }
 
