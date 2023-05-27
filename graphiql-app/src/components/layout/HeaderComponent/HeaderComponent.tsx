@@ -2,28 +2,37 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 import { useAuthState } from 'react-firebase-hooks/auth';
+
+import Switcher from 'react-switcher-rc';
 
 import { authFirebase, logout } from '../../../utils/firebase/firebase';
 
 import './HeaderComponent.scss';
 
-import logoDesktop from '../../../assets/logo-desktop.svg'; 
+import logoDesktop from '../../../assets/logo-desktop.svg';
 import logoMobile from '../../../assets/logo-mobile.svg';
 
 function HeaderComponent() {
+  const [switcherState, setSwitcherState] = useState(false);
   const [user] = useAuthState(authFirebase);
 
   const { pathname } = useLocation();
 
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language);
+  const changeLanguage = (e: any) => {
+    setSwitcherState(e.target.checked);
+    if (e.target.checked === true) {
+      i18n.changeLanguage('en');
+    } else {
+      i18n.changeLanguage('ru');
+    }
   };
 
   const header = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState('120px');
+  const [height, setHeight] = useState('80px');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +43,7 @@ function HeaderComponent() {
       }
       if (scroll > 254) return;
 
-      const defaultHeight = 100;
+      const defaultHeight = 80;
 
       let newHeight = defaultHeight - scroll / 7;
       if (newHeight < 60) newHeight = 60;
@@ -63,10 +72,13 @@ function HeaderComponent() {
             <Link to="/register">
               <button className="header__buttons-signup">{t('header.signup')}</button>
             </Link>
-            <div className="header__buttons-language">
-              <button onClick={() => changeLanguage('en')}>EN</button>
-              <button onClick={() => changeLanguage('ru')}>RU</button>
-            </div>
+            <Switcher
+              name="my-switcher"
+              onChange={changeLanguage}
+              checked={switcherState}
+              checkedIcon="EN"
+              unCheckedIcon="RU"
+            />
           </>
         ) : (
           <>
@@ -78,20 +90,21 @@ function HeaderComponent() {
               </>
             ) : (
               <>
-                {' '}
                 <Link to="/graphiql">
                   <button className="header__buttons-start">{t('header.started')}</button>
                 </Link>
                 <button className="header__buttons-end" onClick={logout}>
-                  Logout
+                  {t('header.logout')}
                 </button>
               </>
             )}
-
-            <div className="header__buttons-language">
-              <button onClick={() => changeLanguage('en')}>EN</button>
-              <button onClick={() => changeLanguage('ru')}>RU</button>
-            </div>
+            <Switcher
+              name="my-switcher"
+              onChange={changeLanguage}
+              checked={switcherState}
+              checkedIcon="EN"
+              unCheckedIcon="RU"
+            />
           </>
         )}
       </div>

@@ -27,12 +27,9 @@ textarea {
 }
 
 .aside-playground-open {
-    width: 385px;
     background-color: #171616;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
-    padding-top: 21px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -46,26 +43,29 @@ textarea {
     gap: 10px;
 
     .request-container {
-        height: 600px;
+        height: 100vh;
+        padding: 5px 15px;
     }
 
     .response-container {
         background-color: #171616;
-        width: 45%;
+        display: flex;
+        flex: 30%;
         color: aliceblue;
         font-size: 14px;
         border-radius: 5px;
 
         &:hover {
-            background-color: #232521;
+            background-color: #152a00;
           }
     }
 
     .variables-container {
         height: 200px;
-        background-color:#242424;
+        background-color:#152a00;
         margin: 5px 10px 15px 5px;
         width: 90%;
+        align-self: center;
     }
 
     .editor-left-container {
@@ -81,12 +81,12 @@ textarea {
         display: flex;
         align-items: center;
         justify-content: center;
-        &:hover {
-            background-color: greenyellow;
-            border-radius: 10px;
-          }
     }
 }
+
+.svg:hover {
+    filter: invert(0) sepia(1) saturate(8.4) hue-rotate(28.8deg) brightness(1);
+  }
 
 .variables-wrapper {
     display: flex;
@@ -104,7 +104,7 @@ textarea {
     align-items: center;
     justify-content: space-between;
     font-size: 1.1rem;
-    margin: 0px 5px;
+    margin: 0px 5px 0 25px;
 }
 
 .tab-active {
@@ -145,3 +145,8 @@ textarea {
     }
    }
 
+pre {
+    margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}

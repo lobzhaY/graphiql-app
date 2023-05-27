@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import Sidebar from 'components/asside-playground/aside/Sidebar';
 import Textarea from '../../components/textarea/Textarea';
 import AssidePlayground from '../../components/asside-playground/AssidePlayground';
 
@@ -8,8 +12,9 @@ import './Playground.scss';
 import arrowUp from '../../assets/arrow_v.png';
 import arrowDown from '../../assets/arrow_down.png';
 
+const url = 'https://rickandmortyapi.com/graphql';
+
 function Playground() {
-  const url = 'https://rickandmortyapi.com/graphql';
   const initialRequest = `query allCh{
       characters {
         results {
@@ -17,26 +22,45 @@ function Playground() {
         }
       }
     }`;
+
   const [request, setRequest] = useState<string>(initialRequest);
   const [response, setResponse] = useState<string>('');
   const [variables, setVariables] = useState<string>('');
-  const [headers, setHeaders] = useState<string>('');
+  const [headers1, setHeaders1] = useState<string>('');
   const [activeTab, setActiveTab] = useState<string>('');
   const [changeArrow, setChangeArrow] = useState<boolean>(false);
 
   const makeRequest = async (query: string) => {
+    let headersFromTextarea
+
+    try {
+      headersFromTextarea = headers1 !== '' && JSON.parse(headers1)
+    } catch (err) {
+      toast.error('Headers должен быть в виде {"x-page": "4"}');
+    }
+    let variablesFromTextarea
+    try {
+      variablesFromTextarea = variables !== '' && JSON.parse(variables)
+    } catch (err) {
+      toast.error('Variables должен быть в виде {"page": 4}');
+    }    // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
     const res = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
+        ...headersFromTextarea
       },
-      body: JSON.stringify({ query, variables: variables ? JSON.parse(variables) : '' }),
+
+      body: JSON.stringify({ query, variables: variables ? variablesFromTextarea : '' }),
     });
-    const dataResults = await res.json().then((data) => JSON.stringify(data, null, '\t'));
-    setResponse(dataResults);
+    await res.json().then((data) => setResponse(JSON.stringify(data, null, ' ')))
+      .catch(() => {
+        toast.error('Произошла ошибка при выполнении запроса.');
+      });
   };
 
   const onclickRequestHandler = () => {
+    setResponse('')
     makeRequest(request);
   };
 
@@ -57,14 +81,18 @@ function Playground() {
 
   return (
     <div className="wrapper-playground">
-      <AssidePlayground />
+
+      {/* <AssidePlayground /> */}
+
       <div className="editor-container">
+        <Sidebar />
         <div className="editor-left-container">
           <div onClick={onclickRequestHandler} className="editor-play">
             <svg
+              className="svg"
               xmlns="http://www.w3.org/2000/svg"
               height="48"
-              fill="gray"
+              fill="#ffffff"
               viewBox="0 96 960 960"
               width="48"
             >
@@ -94,7 +122,7 @@ function Playground() {
                 )}
               </span>
             </div>
-
+            <ToastContainer />
             {activeTab === 'variables' ? (
               <Textarea
                 class={'variables-container'}
@@ -105,8 +133,8 @@ function Playground() {
             {activeTab === 'headers' ? (
               <Textarea
                 class={'variables-container'}
-                defaultValue={headers}
-                setValue={setHeaders}
+                defaultValue={headers1}
+                setValue={setHeaders1}
               />
             ) : null}
           </div>
@@ -114,6 +142,7 @@ function Playground() {
         <pre className="response-container">{response}</pre>
       </div>
     </div>
+
   );
 }
 

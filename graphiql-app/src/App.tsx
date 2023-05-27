@@ -13,8 +13,9 @@ import ResetComponent from './pages/AuthorizationPage/ResetComponent/ResetCompon
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import Playground from './pages/Playground/Playground';
 
-import './App.scss';
 import Loader from './components/loader/Loader';
+
+import './App.scss';
 
 function App() {
   const [user, loading] = useAuthState(authFirebase);
@@ -24,17 +25,25 @@ function App() {
         <Route path="/" element={<RootRoute />}>
           <Route index element={<WelcomePage />} />
           <Route path="/404" element={<NotFoundPage />} />
-          <Route path="/graphiql" element={loading ? <Loader/> : user ? <Playground /> : <Navigate to="/" />} />
+          <Route
+            path="/graphiql/*"
+            element={loading ? <Loader /> : user ? <Playground /> : <Navigate to="/" />}
+          />
           <Route
             index
             path="/login"
-            element={loading ? <Loader/> : user ? <Navigate replace to="/" /> : <LoginComponent />}
+            element={loading ? <Loader /> : user ? <Navigate replace to="/" /> : <LoginComponent />}
           />
           <Route
             path="/register"
-            element={loading ? <Loader/> : user ? <Navigate replace to="/" /> : <RegisterComponent />}
+            element={
+              loading ? <Loader /> : user ? <Navigate replace to="/" /> : <RegisterComponent />
+            }
           />
-          <Route path="/reset" element={loading ? <Loader/> : user ? <Navigate replace to="/" /> : <ResetComponent />} />
+          <Route
+            path="/reset"
+            element={loading ? <Loader /> : user ? <Navigate replace to="/" /> : <ResetComponent />}
+          />
         </Route>
         <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>

@@ -7,7 +7,24 @@
   "header": {
     "login": "Войти",
     "signup": "Регистрация",
-    "started": "Начать"
+    "started": "Начать",
+    "logout": "Выйти"
+  },
+  "login": {
+    "loginform": "Вход",
+    "loginButton": "Войти",
+    "forgot": "Забыли пароль",
+    "account": "У вас нет аккаунта?",
+    "register": "Зарегистрироваться",
+    "now": "сейчас"
+  },
+  "registr": {
+    "signupform": "Форма регистрации",
+    "fullname": "Полное имя",
+    "registrButton": "Зарегистрироваться",
+    "account": "У вас уже есть аккаунт?",
+    "login": "Войти",
+    "now": "сейчас"
   },
   "footer": {
     "yuliya": "Гитхаб Юлии",

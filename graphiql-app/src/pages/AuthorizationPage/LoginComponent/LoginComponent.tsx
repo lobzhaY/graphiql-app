@@ -8,6 +8,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 import Loader from '../../../components/loader/Loader';
@@ -31,6 +32,7 @@ function LoginComponent() {
   const [user, loading] = useAuthState(authFirebase);
 
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (user) navigate('/');
@@ -63,7 +65,7 @@ function LoginComponent() {
         <Loader />
       ) : (
         <>
-          <h2 className="authorization-title">Log in form</h2>
+          <h2 className="authorization-title">{t('login.loginform')}</h2>
           <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
             <AuthorizationInput
               type="text"
@@ -90,21 +92,21 @@ function LoginComponent() {
               placeholder="Password"
             />
             <button className="authorization-button" type="submit">
-              Login
+            {t('login.loginButton')}
             </button>
           </form>
           <div className="authorization-links">
             <div>
               <Link to="/reset" className="auth-link">
-                Forgot Password
+                {t('login.forgot')}
               </Link>
             </div>
             <div>
-              Don&apos;t have an account?{' '}
+             {t('login.account')}{' '}
               <Link to="/register" className="auth-link">
-                Register
+                {t('login.register')}
               </Link>{' '}
-              now.
+               {t('login.now')}.
             </div>
           </div>
         </>
