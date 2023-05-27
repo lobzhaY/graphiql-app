@@ -1,9 +1,8 @@
 import React from 'react';
+
 import { FallbackProps } from 'react-error-boundary';
 
-// eslint-disable-next-line
 function ErrorFallback({ error }: FallbackProps) {
-
   return (
     <div>
       <p>Something went wrong:</p>

@@ -1,6 +1,12 @@
 import React from 'react';
-import './WelcomePage.scss';
+
 import { useTranslation } from 'react-i18next';
+
+import './WelcomePage.scss';
+
+import yuliyaImg from '../../assets/yuliya.png';
+import mariaImg from '../../assets/maria.png';
+import alesiaImg from '../../assets/alesia.png';
 
 function WelcomePage() {
   const { t } = useTranslation();
@@ -8,16 +14,16 @@ function WelcomePage() {
   return (
     <div className="welcome-page">
       <div className="welcome-page__block">
-        <img src="src/assets/yuliya.png" alt="yuliya" className="welcome-page__block-img" />
-        <div className="welcome-page__block-text">{t("welcomePage.yuliya")}</div>
+        <img src={yuliyaImg} alt="yuliya" className="welcome-page__block-img" />
+        <div className="welcome-page__block-text">{t('welcomePage.yuliya')}</div>
       </div>
       <div className="welcome-page__block">
-        <img src="src/assets/maria.png" alt="maria" className="welcome-page__block-img" />
-        <div className="welcome-page__block-text">{t("welcomePage.maria")}</div>
+        <img src={mariaImg} alt="maria" className="welcome-page__block-img" />
+        <div className="welcome-page__block-text">{t('welcomePage.maria')}</div>
       </div>
       <div className="welcome-page__block">
-        <img src="src/assets/alesia.png" alt="alesia" className="welcome-page__block-img" />
-        <div className="welcome-page__block-text">{t("welcomePage.alesia")}</div>
+        <img src={alesiaImg} alt="alesia" className="welcome-page__block-img" />
+        <div className="welcome-page__block-text">{t('welcomePage.alesia')}</div>
       </div>
     </div>
   );

@@ -1,26 +1,29 @@
-import { useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import React, { useEffect } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
-import { authFirebase, dbFirebase } from '../../../utils/firebase/firebase';
-
 import { useForm, SubmitHandler } from 'react-hook-form';
-import {
-  IRegisterState,
-  registrationTypes,
-} from '../../../types/authorizationInterface/authorizationInterface';
-import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 
-import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
-import validationName from '../../../utils/authValidation/authorizationName';
-import validationEmail from '../../../utils/authValidation/authorizationEmail';
-import validationPassword from '../../../utils/authValidation/authorizationPassword';
-import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 import Loader from '../../../components/loader/Loader';
+
+import validationName from '../../../utils/authValidation/authorizationName';
+import validationEmail from '../../../utils/authValidation/authorizationEmail';
+import validationPassword from '../../../utils/authValidation/authorizationPassword';
+import { authFirebase, dbFirebase } from '../../../utils/firebase/firebase';
+
+import {
+  IRegisterState,
+  registrationTypes,
+} from '../../../types/authorizationInterface/authorizationInterface';
+
+import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
 
 function RegisterComponent() {
   const {
@@ -35,7 +38,7 @@ function RegisterComponent() {
 
   useEffect(() => {
     if (user) navigate('/');
-  }, [user, loading]);
+  }, [user, loading, navigate]);
 
   const registerWithEmailAndPassword = async ({ name, email, password }: registrationTypes) => {
     try {
@@ -51,7 +54,7 @@ function RegisterComponent() {
       navigate('/');
     } catch (err) {
       if (err instanceof Error) {
-       showErrorToast(err.message);
+        showErrorToast(err.message);
       }
     }
   };
@@ -62,7 +65,7 @@ function RegisterComponent() {
 
   const showErrorToast = (err: string) => {
     toast.error(`${err}`);
-  }
+  };
 
   return (
     <div className="auth-container">

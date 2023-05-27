@@ -1,9 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './HeaderComponent.scss';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { authFirebase, logout } from '../../../utils/firebase/firebase';
+
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { authFirebase, logout } from '../../../utils/firebase/firebase';
+
+import './HeaderComponent.scss';
+
+import logoDesktop from '../../../assets/logo-desktop.svg'; 
+import logoMobile from '../../../assets/logo-mobile.svg';
 
 function HeaderComponent() {
   const [user] = useAuthState(authFirebase);
@@ -12,7 +18,7 @@ function HeaderComponent() {
 
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (language: any) => {
+  const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
   };
 
@@ -45,8 +51,8 @@ function HeaderComponent() {
   return (
     <header className="header sticky" ref={header} style={{ height }}>
       <Link to="/">
-        <img src="src/assets/logo-desktop.svg" alt="logo" className="header__logo desktop" />
-        <img src="src/assets/logo-mobile.svg" alt="logo" className="header__logo mobile" />
+        <img src={logoDesktop} alt="logo" className="header__logo desktop" />
+        <img src={logoMobile} alt="logo" className="header__logo mobile" />
       </Link>
       <div className="header__buttons">
         {!user ? (

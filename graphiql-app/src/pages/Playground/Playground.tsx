@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import Textarea from '../../components/textarea/Textarea';
-import './Playground.scss';
-import React from 'react';
 import AssidePlayground from '../../components/asside-playground/AssidePlayground';
+
+import './Playground.scss';
+
+import arrowUp from '../../assets/arrow_v.png';
+import arrowDown from '../../assets/arrow_down.png';
 
 function Playground() {
   const url = 'https://rickandmortyapi.com/graphql';
@@ -84,9 +88,9 @@ function Playground() {
               </span>
               <span onClick={onClickChangeArrow}>
                 {changeArrow ? (
-                  <img className="arrow-round" src="src/assets/arrow_v.png" alt="arrow" />
+                  <img className="arrow-round" src={arrowUp} alt="arrow" />
                 ) : (
-                  <img className="arrow-round" src="src/assets/arrow_down.png" alt="arrow_down" />
+                  <img className="arrow-round" src={arrowDown} alt="arrow_down" />
                 )}
               </span>
             </div>

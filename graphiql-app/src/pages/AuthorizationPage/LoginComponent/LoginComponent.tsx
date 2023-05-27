@@ -1,21 +1,24 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
-import { authFirebase } from '../../../utils/firebase/firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ILoginState } from '../../../types/authorizationInterface/authorizationInterface';
-import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 
-import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
-import validationEmail from '../../../utils/authValidation/authorizationEmail';
-import validationPassword from '../../../utils/authValidation/authorizationPassword';
-import React from 'react';
-import Loader from '../../../components/loader/Loader';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
+import Loader from '../../../components/loader/Loader';
+
+import { authFirebase } from '../../../utils/firebase/firebase';
+import validationEmail from '../../../utils/authValidation/authorizationEmail';
+import validationPassword from '../../../utils/authValidation/authorizationPassword';
+
+import { ILoginState } from '../../../types/authorizationInterface/authorizationInterface';
+
+import '../../../pages/AuthorizationPage/AuthorizationPage.scss';
 
 function LoginComponent() {
   const {
@@ -31,7 +34,7 @@ function LoginComponent() {
 
   useEffect(() => {
     if (user) navigate('/');
-  }, [user, loading]);
+  }, [user, loading, navigate]);
 
   const logInWithEmailAndPassword = async (email: string, password: string) => {
     try {
@@ -97,7 +100,7 @@ function LoginComponent() {
               </Link>
             </div>
             <div>
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link to="/register" className="auth-link">
                 Register
               </Link>{' '}
