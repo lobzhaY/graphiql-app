@@ -17,9 +17,9 @@
     "textHeader": "GraphiQL is a playground/IDE for graphQL queries."
   },
   "header": {
-    "login": "Log in",
-    "signup": "Sign up",
-    "started": "Get Started",
+    "login": "Login",
+    "signup": "Signup",
+    "started": "Start",
     "logout": "Logout"
 
   },
