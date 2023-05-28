@@ -95,7 +95,7 @@ function HeaderComponent() {
             {pathname !== '/' ? (
               <>
                 <button className="header__buttons-end" onClick={logout}>
-                  Logout
+                {t('header.logout')}
                 </button>
               </>
             ) : (
