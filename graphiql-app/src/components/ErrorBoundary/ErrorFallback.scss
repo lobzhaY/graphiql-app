@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-body{
+.error-body{
   background: #222;
   display: flex;
   justify-content: center;
@@ -13,28 +13,32 @@ body{
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+
   h1{
     color: transparent;
     font-size: 400px;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
-    background: url("src/assets/404.png");
+    background: url("./../../assets/404.png");
     background-position: center;
     background-size: 100px;
     -webkit-background-clip: text;
   }
+
   p{
     color: white;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
   }
+
   a{
     color: white;
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
   }
+
   .text {
     display: flex;
     flex-direction: column;

@@ -7,16 +7,17 @@ function GraphQLSchemaTree({ schema }) {
     if (type?.kind === 'OBJECT') {
       if (type?.fields) {
         return (
-          <div className="title" onClick={() => setShow(prev => !prev)}>
+          <div className="title" onClick={() => setShow((prev) => !prev)}>
             <strong>{type?.name}</strong>
-            {show &&
+            {show && (
               <ul>
                 {type?.fields?.map((field) => (
                   <li key={field.name}>
                     {field.name}: {field.type?.name}
                   </li>
                 ))}
-              </ul>}
+              </ul>
+            )}
             {type?.fields?.map((field) => renderType(field.type))}
           </div>
         );

@@ -1,10 +1,15 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Textarea from '../../components/textarea/Textarea';
-import './Playground.scss';
+
 import Sidebar from 'components/asside-playground/aside/Sidebar';
+import Textarea from '../../components/textarea/Textarea';
+
+import './Playground.scss';
+
+import arrowUp from '../../assets/arrow_v.png';
+import arrowDown from '../../assets/arrow_down.png';
 
 const url = 'https://rickandmortyapi.com/graphql';
 
@@ -25,36 +30,38 @@ function Playground() {
   const [changeArrow, setChangeArrow] = useState<boolean>(false);
 
   const makeRequest = async (query: string) => {
-    let headersFromTextarea
+    let headersFromTextarea;
 
     try {
-      headersFromTextarea = headers1 !== '' && JSON.parse(headers1)
+      headersFromTextarea = headers1 !== '' && JSON.parse(headers1);
     } catch (err) {
       toast.error('Headers должен быть в виде {"x-page": "4"}');
     }
-    let variablesFromTextarea
+    let variablesFromTextarea;
     try {
-      variablesFromTextarea = variables !== '' && JSON.parse(variables)
+      variablesFromTextarea = variables !== '' && JSON.parse(variables);
     } catch (err) {
       toast.error('Variables должен быть в виде {"page": 4}');
-    }    // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
+    } // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
     const res = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
-        ...headersFromTextarea
+        ...headersFromTextarea,
       },
 
       body: JSON.stringify({ query, variables: variables ? variablesFromTextarea : '' }),
     });
-    await res.json().then((data) => setResponse(JSON.stringify(data, null, ' ')))
+    await res
+      .json()
+      .then((data) => setResponse(JSON.stringify(data, null, ' ')))
       .catch(() => {
         toast.error('Произошла ошибка при выполнении запроса.');
       });
   };
 
   const onclickRequestHandler = () => {
-    setResponse('')
+    setResponse('');
     makeRequest(request);
   };
 
@@ -75,9 +82,6 @@ function Playground() {
 
   return (
     <div className="wrapper-playground">
-
-      {/* <AssidePlayground /> */}
-
       <div className="editor-container">
         <Sidebar />
         <div className="editor-left-container">
@@ -110,9 +114,9 @@ function Playground() {
               </span>
               <span onClick={onClickChangeArrow}>
                 {changeArrow ? (
-                  <img className="arrow-round" src="src/assets/arrow_v.png" alt="arrow" />
+                  <img className="arrow-round" src={arrowUp} alt="arrow" />
                 ) : (
-                  <img className="arrow-round" src="src/assets/arrow_down.png" alt="arrow_down" />
+                  <img className="arrow-round" src={arrowDown} alt="arrow_down" />
                 )}
               </span>
             </div>
@@ -133,11 +137,9 @@ function Playground() {
             ) : null}
           </div>
         </div>
-
         <pre className="response-container">{response}</pre>
       </div>
     </div>
-
   );
 }
 
