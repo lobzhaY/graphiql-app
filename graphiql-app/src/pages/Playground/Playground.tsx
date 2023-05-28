@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 import Sidebar from 'components/asside-playground/aside/Sidebar';
 import Textarea from '../../components/textarea/Textarea';
@@ -29,20 +30,22 @@ function Playground() {
   const [activeTab, setActiveTab] = useState<string>('');
   const [changeArrow, setChangeArrow] = useState<boolean>(false);
 
+  const { t } = useTranslation();
+
   const makeRequest = async (query: string) => {
     let headersFromTextarea;
 
     try {
       headersFromTextarea = headers1 !== '' && JSON.parse(headers1);
     } catch (err) {
-      toast.error('Headers должен быть в виде {"x-page": "4"}');
+      toast.error(`${t('errors.headers')}`);
     }
     let variablesFromTextarea;
     try {
       variablesFromTextarea = variables !== '' && JSON.parse(variables);
     } catch (err) {
-      toast.error('Variables должен быть в виде {"page": 4}');
-    } // const headersFromTextarea = headers1 !=='' ? JSON.parse(headers1): null;
+      toast.error(`${t('errors.variables')}`);
+    }
     const res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -56,9 +59,9 @@ function Playground() {
       .json()
       .then((data) => setResponse(JSON.stringify(data, null, ' ')))
       .catch(() => {
-        toast.error('Произошла ошибка при выполнении запроса.');
+        toast.error(`${t('errors.request')}`);
       });
-  };
+  }; 
 
   const onclickRequestHandler = () => {
     setResponse('');

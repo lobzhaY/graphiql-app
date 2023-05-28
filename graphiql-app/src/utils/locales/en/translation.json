@@ -21,7 +21,6 @@
     "signup": "Sign up",
     "started": "Get Started",
     "logout": "Logout"
-
   },
   "login": {
     "loginform": "Log in form",
@@ -62,6 +61,9 @@
   "errors": {
     "email": "Enter email",
     "password": "Enter password",
-    "name": "Enter name"
+    "name": "Enter name",
+    "request": "An error occurred while executing the request.",
+    "variables": "Variables should be in the form {'page': 4}",
+    "headers": "Headers should be in the form {'x-page': '4'}"
   }
 }
