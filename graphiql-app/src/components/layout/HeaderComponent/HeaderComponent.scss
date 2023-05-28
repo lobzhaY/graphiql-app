@@ -211,6 +211,12 @@
   }
 }
 
+@media (max-width: 450px) {
+  .header {
+    min-width: 320px;
+  }
+}
+
 .custom-switch {
   margin-left: 35px;
 }
