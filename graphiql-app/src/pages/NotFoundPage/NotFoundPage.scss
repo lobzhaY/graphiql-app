@@ -15,57 +15,57 @@
   align-items: center;
   justify-content: center;
   width: 700px;
-  margin: 0px auto;
+  margin: 0px auto 10px;
 
   h1 {
-  color: transparent;
-  font-size: 400px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
-  background: #DDD;
-  background-position: center;
-  background-size: 100px;
-  background-clip: text;
-  -webkit-background-clip: text;  
-}
-
-p {
-  color: $main-color;
-  font-size: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  text-align: center;
-}
-
-.nfp-link {
-  color: $main-color;
-  font-size: 30px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-
-  &:hover {
-    text-decoration: none;
+    color: transparent;
+    font-size: 375px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    background: #DDD;
+    background-position: center;
+    background-size: 100px;
+    background-clip: text;
+    -webkit-background-clip: text;
   }
 
-  &:active {
-    color: $link-color;
+  p {
+    color: $main-color;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-align: center;
   }
 
-  &:visited {
-    color: $error-color;
-  }
-}
+  .nfp-link {
+    color: $main-color;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 
-.text {
-  border-radius: 8px;
-  width: 320px;
-  background-color: #DDD;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}  
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:active {
+      color: $link-color;
+    }
+
+    &:visited {
+      color: $error-color;
+    }
+  }
+
+  .text {
+    border-radius: 8px;
+    width: 320px;
+    background-color: #DDD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -80,10 +80,12 @@ p {
 @media (max-width: 768px) {
   .wrapper-nfp {
     align-items: flex-start;
-    margin-top: 150px; 
+    margin-top: 150px;
   }
+
   .not-found-page {
     width: 700px * 0.7;
+
     h1 {
       font-size: 400px * 0.4;
       background-size: 100px * 0.4;
@@ -96,8 +98,10 @@ p {
     justify-content: flex-start;
     margin-top: 50px;
   }
+
   .not-found-page {
     width: 700px * 0.3;
+
     h1 {
       font-size: 400px * 0.2;
       background-size: 100px * 0.2;

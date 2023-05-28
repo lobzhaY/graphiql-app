@@ -2,7 +2,19 @@
   "welcomePage": {
     "yuliya": "Yuliya Lobzha",
     "maria": "Maria Stakhovskaya",
-    "alesia": "Alesia Branovitskaya"
+    "alesia": "Alesia Branovitskaya",
+    "aLocation": "Minsk, Belarus",
+    "yLocation": "Jodino, Belarus",
+    "mLocation": "Kassel, Germany",
+    "dev": "Frontend-developer",
+    "stack": "Stack:",
+    "language": "English A2",
+    "mLanguage": "English A2, German B1",
+    "textStage": "The application was written by the GRAf MAY team as part of the 3rd stage of training in RS School React 2023 Q1.",
+    "textApp1": "The application also includes the ability to authorize/authenticate the user through firebase to ensure that only authorized users have access to the tool.",
+    "textApp2": "As well as localization into two languages (Russian and English). Implemented adaptive design and semantic layout.",
+    "textApp3": "The application is written in React using new features. When writing, typescript, sass were used.",
+    "textHeader": "GraphiQL is a playground/IDE for graphQL queries."
   },
   "header": {
     "login": "Log in",
@@ -28,9 +40,9 @@
     "now": "now"
   },
   "footer": {
-    "yuliya": "Github Yuliya",
-    "maria": "Github Maria",
-    "alesia": "Github Alesia"
+    "yuliya": "Yuliya",
+    "maria": "Maria",
+    "alesia": "Alesia"
   },
   "errorFallback": {
     "paragraphMessage": "The page you want isn't available",
