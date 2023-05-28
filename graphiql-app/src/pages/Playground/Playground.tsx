@@ -11,19 +11,10 @@ import './Playground.scss';
 
 import arrowUp from '../../assets/arrow_v.png';
 import arrowDown from '../../assets/arrow_down.png';
-
-const url = 'https://rickandmortyapi.com/graphql';
+import { INITIAL_REQUEST, URL } from '../../constants/constants';
 
 function Playground() {
-  const initialRequest = `query allCh{
-      characters {
-        results {
-          name
-        }
-      }
-    }`;
-
-  const [request, setRequest] = useState<string>(initialRequest);
+  const [request, setRequest] = useState<string>(INITIAL_REQUEST);
   const [response, setResponse] = useState<string>('');
   const [variables, setVariables] = useState<string>('');
   const [headers1, setHeaders1] = useState<string>('');
@@ -46,7 +37,7 @@ function Playground() {
     } catch (err) {
       toast.error(`${t('errors.variables')}`);
     }
-    const res = await fetch(url, {
+    const res = await fetch(URL, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -61,7 +52,7 @@ function Playground() {
       .catch(() => {
         toast.error(`${t('errors.request')}`);
       });
-  }; 
+  };
 
   const onclickRequestHandler = () => {
     setResponse('');

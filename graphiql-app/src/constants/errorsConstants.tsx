@@ -12,4 +12,3 @@ export const ERROR_MESSAGE_PASSWORD_NUMBERS = 'Password must contain one number'
 export const ERROR_MESSAGE_PASSWORD_SYMBOL = 'Password must contain one special character';
 export const ERROR_MESSAGE_PASSWORD_LENGTH = 'Minimum password length 8 symbols';
 export const ERROR_MESSAGE_PASSWORD_SPACE = 'Password must not contain spaces';
- 
