@@ -31,5 +31,10 @@
     "yuliya": "Github Yuliya",
     "maria": "Github Maria",
     "alesia": "Github Alesia"
+  },
+  "errorFallback": {
+    "paragraphMessage": "The page you want isn't available",
+    "link": "return to homepage",
+    "button": "show error message"
   }
 }
