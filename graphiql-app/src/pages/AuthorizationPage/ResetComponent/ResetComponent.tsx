@@ -77,7 +77,7 @@ function ResetComponent() {
                 id="email-register"
                 hookRegister={{
                   ...register('email', {
-                    required: 'Error email!',
+                    required: `${t('errors.email')}`,
                     validate: (value) => validationEmail(value),
                   }),
                 }}

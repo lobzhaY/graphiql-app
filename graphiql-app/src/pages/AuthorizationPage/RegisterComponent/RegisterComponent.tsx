@@ -84,7 +84,7 @@ function RegisterComponent() {
                 id="name-register"
                 hookRegister={{
                   ...register('name', {
-                    required: 'Error name!',
+                    required: `${t('errors.name')}`,
                     validate: (value) => validationName(value),
                   }),
                 }}
@@ -96,7 +96,7 @@ function RegisterComponent() {
                 id="email-register"
                 hookRegister={{
                   ...register('email', {
-                    required: 'Error email!',
+                    required: `${t('errors.email')}`,
                     validate: (value) => validationEmail(value),
                   }),
                 }}
@@ -108,7 +108,7 @@ function RegisterComponent() {
                 id="password-register"
                 hookRegister={{
                   ...register('password', {
-                    required: 'Error password!',
+                    required: `${t('errors.password')}`,
                     validate: (value) => validationPassword(value),
                   }),
                 }}

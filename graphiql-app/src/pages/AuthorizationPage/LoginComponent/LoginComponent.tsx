@@ -73,7 +73,7 @@ function LoginComponent() {
                 id="email-login"
                 hookRegister={{
                   ...register('email', {
-                    required: 'Error email!',
+                    required: `${t('errors.email')}`,
                     validate: (value) => validationEmail(value),
                   }),
                 }}
@@ -85,7 +85,7 @@ function LoginComponent() {
                 id="password-login"
                 hookRegister={{
                   ...register('password', {
-                    required: 'Error password!',
+                    required: `${t('errors.password')}`,
                     validate: (value) => validationPassword(value),
                   }),
                 }}

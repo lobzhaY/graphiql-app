@@ -58,5 +58,10 @@
   "notFound": {
     "paragraphMessage": "The page you want isn't available",
     "link": "return to homepage"
+  },
+  "errors": {
+    "email": "Enter email",
+    "password": "Enter password",
+    "name": "Enter name"
   }
 }

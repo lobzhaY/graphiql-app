@@ -57,5 +57,10 @@
   "notFound": {
     "link": "на главную",
     "paragraphMessage": "Данная страница недоступна"
+  },
+  "errors": {
+    "email": "Введите email",
+    "password": "Введите пароль",
+    "name": "Введите имя"
   }
 }
