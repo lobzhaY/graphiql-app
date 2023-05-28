@@ -9,10 +9,10 @@ import { addDoc, collection } from 'firebase/firestore';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 import Loader from '../../../components/loader/Loader';
-import { useTranslation } from 'react-i18next';
 
 import validationName from '../../../utils/authValidation/authorizationName';
 import validationEmail from '../../../utils/authValidation/authorizationEmail';
@@ -84,7 +84,7 @@ function RegisterComponent() {
                 id="name-register"
                 hookRegister={{
                   ...register('name', {
-                    required: 'Error name!',
+                    required: `${t('errors.name')}`,
                     validate: (value) => validationName(value),
                   }),
                 }}
@@ -96,24 +96,24 @@ function RegisterComponent() {
                 id="email-register"
                 hookRegister={{
                   ...register('email', {
-                    required: 'Error email!',
+                    required: `${t('errors.email')}`,
                     validate: (value) => validationEmail(value),
                   }),
                 }}
                 hookError={errors.email}
-                placeholder="E-mail Address"
+                placeholder={t('login.placeholderEmail')}
               />
               <AuthorizationInput
                 type="password"
                 id="password-register"
                 hookRegister={{
                   ...register('password', {
-                    required: 'Error password!',
+                    required: `${t('errors.password')}`,
                     validate: (value) => validationPassword(value),
                   }),
                 }}
                 hookError={errors.password}
-                placeholder="Password"
+                placeholder={t('login.placeholderPassword')}
               />
               <button type="submit" className="authorization-button">
                 {t('registr.registrButton')}

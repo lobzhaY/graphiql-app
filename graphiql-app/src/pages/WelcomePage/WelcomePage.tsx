@@ -29,10 +29,10 @@ function WelcomePage() {
           </div>
           <div className="welcome-page__block-row-text">
             <h5 className="welcome-page__block-text">{t('welcomePage.yuliya')}</h5>
-              <p>{t('welcomePage.yLocation')}</p>
-              <p>{t('welcomePage.dev')}</p>
-              <p>{t('welcomePage.stack')} JS, TS, React</p>
-              <p>{t('welcomePage.language')}</p>
+            <p>{t('welcomePage.yLocation')}</p>
+            <p>{t('welcomePage.dev')}</p>
+            <p>{t('welcomePage.stack')} JS, TS, React</p>
+            <p>{t('welcomePage.language')}</p>
           </div>
         </div>
         <div className="welcome-page__block">
@@ -41,10 +41,11 @@ function WelcomePage() {
           </div>
           <div className="welcome-page__block-row-text">
             <h5 className="welcome-page__block-text">{t('welcomePage.maria')}</h5>
-              <p>{t('welcomePage.mLocation')}</p>
-              <p>{t('welcomePage.dev')}</p>
-              <p>{t('welcomePage.stack')} JS, TS, React</p>
-              <p>{t('welcomePage.mLanguage')}</p>
+            <p>{t('welcomePage.mLocation')}</p>
+            <p>{t('welcomePage.dev')}</p>
+            <p>{t('welcomePage.stack')} JS, TS, React</p>
+            <p>{t('welcomePage.mLanguage1')}</p>
+            <p>{t('welcomePage.mLanguage2')}</p>
           </div>
         </div>
         <div className="welcome-page__block">
@@ -53,10 +54,10 @@ function WelcomePage() {
           </div>
           <div className="welcome-page__block-row-text">
             <h5 className="welcome-page__block-text">{t('welcomePage.alesia')}</h5>
-              <p>{t('welcomePage.aLocation')}</p>
-              <p>{t('welcomePage.dev')}</p>
-              <p>{t('welcomePage.stack')} JS, TS, React, Angular</p>
-              <p>{t('welcomePage.language')}</p>
+            <p>{t('welcomePage.aLocation')}</p>
+            <p>{t('welcomePage.dev')}</p>
+            <p>{t('welcomePage.stack')} JS, TS, React, Angular</p>
+            <p>{t('welcomePage.language')}</p>
           </div>
         </div>
       </div>

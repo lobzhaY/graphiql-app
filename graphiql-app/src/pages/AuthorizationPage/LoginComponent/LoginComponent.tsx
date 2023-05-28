@@ -73,24 +73,24 @@ function LoginComponent() {
                 id="email-login"
                 hookRegister={{
                   ...register('email', {
-                    required: 'Error email!',
+                    required: `${t('errors.email')}`,
                     validate: (value) => validationEmail(value),
                   }),
                 }}
                 hookError={errors.email}
-                placeholder="E-mail Address"
+                placeholder={t('login.placeholderEmail')}
               />
               <AuthorizationInput
                 type="password"
                 id="password-login"
                 hookRegister={{
                   ...register('password', {
-                    required: 'Error password!',
+                    required: `${t('errors.password')}`,
                     validate: (value) => validationPassword(value),
                   }),
                 }}
                 hookError={errors.password}
-                placeholder="Password"
+                placeholder={t('login.placeholderPassword')}
               />
               <button className="authorization-button" type="submit">
                 {t('login.loginButton')}
