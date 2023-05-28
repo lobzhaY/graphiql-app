@@ -144,7 +144,7 @@
       &-login,
       &-signup,
       &-start, &-end {
-        padding: 1rem 3rem;
+        padding: 0.5rem 3rem;
       }
     }
   }
@@ -211,11 +211,6 @@
   }
 }
 
-@media (max-width: 450px) {
-  .header {
-    min-width: 320px;
-  }
-}
 
 .custom-switch {
   margin-left: 35px;
@@ -230,4 +225,23 @@
   background-color: $main-color !important;
   border: 1px solid $main-color !important;
   color: #ffffff;
+}
+
+@media (max-width: 490px) {
+  .header {
+    min-width: 320px;
+  }
+  .header__buttons {
+    flex-wrap: wrap;
+  }
+  .header__buttons-end {
+    padding: 0.5rem 1rem; 
+ }
+ 
+  .custom-switch {
+    margin-left: 0px;
+}
+.header__buttons-start {
+  margin-right: 0.4rem;
+}
 }
