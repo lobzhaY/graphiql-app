@@ -36,5 +36,9 @@
     "paragraphMessage": "The page you want isn't available",
     "link": "return to homepage",
     "button": "show error message"
+  },
+  "notFound": {
+    "paragraphMessage": "The page you want isn't available",
+    "link": "return to homepage"
   }
 }

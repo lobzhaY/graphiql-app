@@ -34,6 +34,18 @@
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
+
+    &:hover {
+      text-decoration: none;
+    }
+  
+    &:active {
+      color: $link-color;
+    }
+  
+    &:visited {
+      color: $error-color;
+    }
   }
 
   .text {
@@ -51,7 +63,6 @@
     border-radius: 10px;
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 700;
     font-size: $font-size-sm;
     line-height: 42px;
     color: $second-color;

@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useTranslation } from 'react-i18next';
 
-import './ErrorFallback.scss';
+import './ErrorFallback.scss'; 
 
 function ErrorFallback({ error }: FallbackProps) {
   const [showError, setShowError] = useState<boolean>(false);
