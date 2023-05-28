@@ -9,6 +9,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 import Loader from '../../../components/loader/Loader';
@@ -31,7 +32,7 @@ function ResetComponent() {
   } = useForm<IResetState>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
 
   const [user, loading] = useAuthState(authFirebase);
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,7 +70,7 @@ function ResetComponent() {
           <Loader />
         ) : (
           <>
-            <h2 className="authorization-title">Reset password</h2>
+            <h2 className="authorization-title">{t('reset.resetTitle')}</h2>
             <form className="form-auth" onSubmit={handleSubmit(handleSubmitClick)}>
               <AuthorizationInput
                 type="text"
@@ -81,18 +82,18 @@ function ResetComponent() {
                   }),
                 }}
                 hookError={errors.email}
-                placeholder="E-mail Address"
+                placeholder={t('login.placeholderEmail')}
               />
               <button type="submit" className="authorization-button">
-                Send password reset email
+                {t('reset.sendPassword')}
               </button>
             </form>
             <div className="authorization-links">
-              Don&apos;t have an account?
+              {t('login.account')}{' '}
               <Link to="/register" className="auth-link">
-                Register
-              </Link>
-              now.
+                {t('login.register')}
+              </Link>{' '}
+              {t('login.now')}
             </div>
           </>
         )}

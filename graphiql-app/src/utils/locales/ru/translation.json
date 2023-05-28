@@ -28,7 +28,9 @@
     "forgot": "Забыли пароль",
     "account": "У вас нет аккаунта?",
     "register": "Зарегистрироваться",
-    "now": "сейчас"
+    "now": "сейчас",
+    "placeholderEmail": "Электронная почта",
+    "placeholderPassword": "Пароль"
   },
   "registr": {
     "signupform": "Форма регистрации",
@@ -37,6 +39,10 @@
     "account": "У вас уже есть аккаунт?",
     "login": "Войти",
     "now": "сейчас"
+  },
+  "reset": {
+    "resetTitle": "Сброс пароля",
+    "sendPassword": "Отправить пароль"
   },
   "footer": {
     "yuliya": "Юлия",

@@ -29,7 +29,9 @@
     "forgot": "Forgot Password",
     "account": "Don't have an account?",
     "register": "Register",
-    "now": "now"
+    "now": "now",
+    "placeholderEmail": "E-mail Address",
+    "placeholderPassword": "Password"
   },
   "registr": {
     "signupform": "Sign up form",
@@ -38,6 +40,10 @@
     "account": "Already have an account?",
     "login": "Login",
     "now": "now"
+  },
+  "reset": {
+    "resetTitle": "Reset password",
+    "sendPassword": "Send password"
   },
   "footer": {
     "yuliya": "Yuliya",

@@ -78,7 +78,7 @@ function LoginComponent() {
                   }),
                 }}
                 hookError={errors.email}
-                placeholder="E-mail Address"
+                placeholder={t('login.placeholderEmail')}
               />
               <AuthorizationInput
                 type="password"
@@ -90,7 +90,7 @@ function LoginComponent() {
                   }),
                 }}
                 hookError={errors.password}
-                placeholder="Password"
+                placeholder={t('login.placeholderPassword')}
               />
               <button className="authorization-button" type="submit">
                 {t('login.loginButton')}

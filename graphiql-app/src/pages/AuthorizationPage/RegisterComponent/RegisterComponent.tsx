@@ -9,10 +9,10 @@ import { addDoc, collection } from 'firebase/firestore';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 import AuthorizationInput from '../../../components/layout/AuthorizationInput/AuthorizationInput';
 import Loader from '../../../components/loader/Loader';
-import { useTranslation } from 'react-i18next';
 
 import validationName from '../../../utils/authValidation/authorizationName';
 import validationEmail from '../../../utils/authValidation/authorizationEmail';
@@ -101,7 +101,7 @@ function RegisterComponent() {
                   }),
                 }}
                 hookError={errors.email}
-                placeholder="E-mail Address"
+                placeholder={t('login.placeholderEmail')}
               />
               <AuthorizationInput
                 type="password"
@@ -113,7 +113,7 @@ function RegisterComponent() {
                   }),
                 }}
                 hookError={errors.password}
-                placeholder="Password"
+                placeholder={t('login.placeholderPassword')}
               />
               <button type="submit" className="authorization-button">
                 {t('registr.registrButton')}
