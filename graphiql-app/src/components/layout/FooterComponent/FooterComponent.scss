@@ -1,0 +1,138 @@
+@import '../../../styles/variables.scss';
+
+.footer {
+  background-color: $main-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  &__logo {
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  &__info {
+    display: flex;
+
+    &-year {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10px;
+      color: $link-color;
+      font-size: $font-size-md;
+      flex: 30%;
+    }
+
+    &-github {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      color: $link-color;
+      font-size: $font-size-md;
+    }
+
+    &-link {
+      width: 130px;
+      margin: 0.5rem 2rem 0 0;
+      color: $link-color;
+      font-size: $font-size-md;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      p {
+        width: 70%;
+    }
+    }
+  }
+}
+.footer-link {
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $link-color;
+  }
+
+  &:visited {
+    color: $error-color;
+  }
+}
+.gh-link {
+  width: 25%;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__logo {
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      width: 50%;
+    }
+
+    &__info {
+      &-year, &-link  {
+        margin: 0 0.5rem 0 0;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  .footer__info-link {
+    width: 130px * 0.3;
+  }
+  .footer-logo-link {
+    width: 30%;
+  }
+  .footer__info-year {
+    font-size: $font-size-md * 0.7;
+    width: 15%;
+  }
+  .footer__info-github {
+    width: 55%;
+  }
+  .footer__info-link {
+    p {
+      display: none;
+    }
+  }
+  .gh-link {
+    width: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .footer {
+    min-width: 320px;
+
+    .footer-logo-link {
+      width: 20%;
+    }
+    .footer__info-year {
+      width: 10%;
+      font-size: 14px;
+    }
+    .footer__info-github {
+      width: 50%;
+    }
+  }
+  .footer__info-link {
+    width: 50%;
+  }
+}
+
+@media (max-height: 1000px) {
+  .footer {
+    &__logo {
+      width: 50%;
+    }
+  }  
+}

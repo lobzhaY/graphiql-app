@@ -1,0 +1,247 @@
+@import '../../../styles/variables.scss';
+
+.header {
+  max-width: 100%;
+  background-color: $main-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .mobile {
+    display: none;
+  }
+
+  &__logo {
+    margin: 1rem 2rem;
+    object-fit: cover;
+    width: 354px;
+    height: 56px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 2rem;
+    font-size: $font-size-sm;
+
+    &-login {
+      color: $second-color;
+      border: 2px solid $second-color;
+      background-color: $main-color;
+      border-radius: 10px;
+      margin-right: 2rem;
+      padding: 1rem 5rem;
+
+      &:disabled {
+        cursor: not-allowed;
+        border-color: #DDDDDD;
+        color: #DDDDDD;
+        opacity: 0.6;
+      }
+
+      &:hover {
+        color: $main-color;
+        background-color: $second-color;
+      }
+
+    }
+
+    &-signup {
+      color: $main-color;
+      background-color: $second-color;
+      border-radius: 10px;
+      padding: 1rem 5rem;
+      
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+        color: #DDDDDD;
+        border: 2px solid #DDDDDD;
+        background-color: $main-color;
+      }
+
+      &:hover {
+        color: $second-color;
+        border: 2px solid $second-color;
+        background-color: $main-color;
+      }
+    }
+
+    &-start {
+      color: $main-color;
+      background-color: $second-color;
+      border-radius: 10px;
+      padding: 1rem 5rem;
+      margin-right: 2rem;
+
+      &:hover {
+        color: $second-color;
+        border: 2px solid $second-color;
+        background-color: $main-color;
+      }
+    }
+
+    &-end {
+      color: $second-color;
+      border: 2px solid $second-color;
+      background-color: $main-color;
+      border-radius: 10px;
+      padding: 1rem 5rem;
+
+      &:hover {
+        color: $main-color;
+        background-color: $second-color;
+      }
+    }
+
+    &-language {
+      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+
+      & > button {
+        margin: 5px 0;
+        padding: 5px 10px;
+        color: $second-color;
+        border: 2px solid $second-color;
+        background-color: $main-color;
+        
+        &:hover {
+          color: $main-color;
+          background-color: $second-color;
+        }
+      }
+    }
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s ease;
+  animation: smoothScroll 1s forwards;
+  z-index: 1;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-142px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    &__buttons {
+      font-size: $font-size-sm * 0.7;
+      margin: 1rem 0.5rem;
+
+      &-login,
+      &-signup,
+      &-start, &-end {
+        padding: 0.5rem 3rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    min-width: 320px;
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: flex;
+      width: 64px;
+      height: 64px;
+      object-fit: unset;
+    }
+
+    &__logo {
+      margin: 1rem 0.5rem;
+    }
+
+    &__buttons {
+      font-size: $font-size-sm * 0.75;
+      margin: 1rem 0.5rem;
+
+      &-login {
+        width: 100px;
+        color: $second-color;
+        border: unset;
+        background-color: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.5rem;
+
+        &:hover {
+          color: $main-color;
+          background-color: $second-color;
+        }
+      }
+
+      &-signup {
+        width: 100px;
+        color: $second-color;
+        background-color: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          border: unset;
+          color: $main-color;
+          background-color: $second-color;
+        }
+      }
+
+      &-start {
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}
+
+
+.custom-switch {
+  margin-left: 35px;
+}
+
+.custom-switch__checkbox:checked + .custom-switch__shape {
+  background-color: $second-color !important;
+  border: 1px solid $second-color !important;
+}
+
+.custom-switch__shape {
+  background-color: $main-color !important;
+  border: 1px solid $main-color !important;
+  color: #ffffff;
+}
+
+@media (max-width: 490px) {
+  .header {
+    min-width: 320px;
+  }
+  .header__buttons {
+    flex-wrap: wrap;
+  }
+  .header__buttons-end {
+    padding: 0.5rem 1rem; 
+ }
+ 
+  .custom-switch {
+    margin-left: 0px;
+}
+.header__buttons-start {
+  margin-right: 0.4rem;
+}
+}

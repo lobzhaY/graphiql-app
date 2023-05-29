@@ -1,0 +1,70 @@
+{
+  "welcomePage": {
+    "yuliya": "Yuliya Lobzha",
+    "maria": "Maria Stakhovskaya",
+    "alesia": "Alesia Branovitskaya",
+    "aLocation": "Minsk, Belarus",
+    "yLocation": "Jodino, Belarus",
+    "mLocation": "Kassel, Germany",
+    "dev": "Frontend-developer",
+    "stack": "Stack:",
+    "language": "English A2",
+    "mLanguage1": "English A2",
+    "mLanguage2": "German B1",
+    "textStage": "The application was written by the GRAf MAY team as part of the 3rd stage of training in RS School React 2023 Q1.",
+    "textApp1": "The application also includes the ability to authorize/authenticate the user through firebase to ensure that only authorized users have access to the tool.",
+    "textApp2": "As well as localization into two languages (Russian and English). Implemented adaptive design and semantic layout.",
+    "textApp3": "The application is written in React using new features. When writing, typescript, sass were used.",
+    "textHeader": "GraphiQL is a playground/IDE for graphQL queries."
+  },
+  "header": {
+    "login": "Login",
+    "signup": "Signup",
+    "started": "Start",
+    "logout": "Logout"
+  },
+  "login": {
+    "loginform": "Log in form",
+    "loginButton": "Login",
+    "forgot": "Forgot Password",
+    "account": "Don't have an account?",
+    "register": "Register",
+    "now": "now",
+    "placeholderEmail": "E-mail Address",
+    "placeholderPassword": "Password"
+  },
+  "registr": {
+    "signupform": "Sign up form",
+    "fullname": "Full name",
+    "registrButton": "Register",
+    "account": "Already have an account?",
+    "login": "Login",
+    "now": "now"
+  },
+  "reset": {
+    "resetTitle": "Reset password",
+    "sendPassword": "Send password"
+  },
+  "footer": {
+    "yuliya": "Yuliya",
+    "maria": "Maria",
+    "alesia": "Alesia"
+  },
+  "errorFallback": {
+    "paragraphMessage": "The page you want isn't available",
+    "link": "return to homepage",
+    "button": "show error message"
+  },
+  "notFound": {
+    "paragraphMessage": "The page you want isn't available",
+    "link": "return to homepage"
+  },
+  "errors": {
+    "email": "Enter email",
+    "password": "Enter password",
+    "name": "Enter name",
+    "request": "An error occurred while executing the request.",
+    "variables": "Variables should be in the form {'page': 4}",
+    "headers": "Headers should be in the form {'x-page': '4'}"
+  }
+}
